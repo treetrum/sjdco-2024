@@ -11,7 +11,7 @@ export const ContentBlock = (props: ContentBlockProps) => {
     return (
         <div className="mt-8 first:mt-0 sm:flex">
             {props.secondaryTitle != undefined && (
-                <div className="hidden sm:mb-0 sm:block sm:w-[200px] sm:flex-shrink-0 sm:text-base sm:text-white md:text-xl">
+                <div className="hidden sm:mb-0 sm:block sm:w-[150px] sm:flex-shrink-0 sm:text-base sm:text-white md:w-[200px] md:text-xl">
                     {props.secondaryTitle}
                 </div>
             )}

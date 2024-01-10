@@ -15,12 +15,11 @@ const config: Config = {
                 gradientPurpleDark: '#0D001A',
             },
             backgroundImage: ({ theme }) => ({
-                'gradient-radial': `radial-gradient(100% 150% at 100% 0%, ${theme(
+                'gradient-radial-sm': `radial-gradient(circle farthest-side at top center, ${theme(
                     'colors.gradientPurpleLight',
-                )} 50%, ${theme('colors.gradientPurpleDark')} 100%);`,
+                )} 0%, ${theme('colors.gradientPurpleDark')} 100%);`,
             }),
         },
-        backgroundImage: {},
     },
     plugins: [],
 };

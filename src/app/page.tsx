@@ -1,12 +1,12 @@
-import { SocialIcons } from './social-icons';
 import Intro from '../content/intro.mdx';
 import { ContentBlock } from './components/ContentBlock';
 import employment from '../content/employment-history.json';
 import technicalSkills from '../content/technical-skills.json';
+import { SocialIcons } from './components/SocialIcons';
 
 export default function Home() {
     return (
-        <div className="container mx-auto flex min-h-screen max-w-screen-xl flex-col items-start gap-12 px-6 py-12 sm:px-12 lg:flex-row lg:gap-16 lg:py-24">
+        <div className="container mx-auto flex min-h-screen max-w-screen-xl flex-col items-start gap-12 px-6 py-12 sm:px-16 sm:py-16 lg:flex-row lg:gap-16 lg:py-24">
             <aside className="top-24 flex w-full flex-col gap-3 lg:sticky lg:max-w-xs">
                 <h1 className="text-4xl font-bold text-purple sm:text-5xl">Sam Davis</h1>
                 <h5 className="text-lg text-white sm:text-xl">Web Developer</h5>

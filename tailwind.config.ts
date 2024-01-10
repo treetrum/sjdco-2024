@@ -15,9 +15,9 @@ const config: Config = {
                 gradientPurpleDark: '#0D001A',
             },
             backgroundImage: ({ theme }) => ({
-                'gradient-radial-sm': `radial-gradient(circle farthest-side at top center, ${theme(
+                'gradient-radial-sm': `radial-gradient(circle at top center, ${theme(
                     'colors.gradientPurpleLight',
-                )} 0%, ${theme('colors.gradientPurpleDark')} 100%);`,
+                )} 0% 15%, ${theme('colors.gradientPurpleDark')} 100%);`,
             }),
         },
     },

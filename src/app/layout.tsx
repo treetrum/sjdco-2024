@@ -15,11 +15,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <head>
                 <meta name="theme-color" content="#1A0033" />
             </head>
-            <body className={inter.className}>
-                <div className="bg-gradient-radial-sm text-sm leading-relaxed text-white text-opacity-50 selection:bg-purple selection:text-gradientPurpleDark sm:text-base sm:leading-relaxed">
+            <body className={`${inter.className} bg-gradientPurpleDark`}>
+                <div className="bg-gradient-radial-sm fixed left-0 top-0 h-lvh w-screen"></div>
+                <div className="z-1 relative text-sm leading-relaxed text-white text-opacity-50 selection:bg-purple selection:text-gradientPurpleDark sm:text-base sm:leading-relaxed">
                     {children}
                 </div>
-                <div className="h-2 w-full bg-purple"></div>
             </body>
         </html>
     );

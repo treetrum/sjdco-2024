@@ -18,11 +18,12 @@
 
 body {
     color: rgb(var(--foreground-rgb));
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-smooth: never;
 }
 
 a {
     transition: 100ms ease color;
+}
+
+.prose a {
+    @apply font-medium text-white underline hover:text-purple;
 }

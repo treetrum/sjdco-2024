@@ -12,19 +12,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <body
-                className={[
-                    inter.className,
-                    'leading-7',
-                    'text-md',
-                    'text-white',
-                    'text-opacity-65',
-                    'bg-gradient-radial',
-                    'selection:bg-purple',
-                    'selection:text-gradientPurpleDark',
-                ].join(' ')}
-            >
-                {children}
+            <body className={inter.className}>
+                <div className="bg-gradient-radial text-sm leading-relaxed text-white text-opacity-50 selection:bg-purple selection:text-gradientPurpleDark sm:text-base sm:leading-relaxed">
+                    {children}
+                </div>
+                <div className="h-3 w-full bg-purple"></div>
             </body>
         </html>
     );

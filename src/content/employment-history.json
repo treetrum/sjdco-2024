@@ -1,0 +1,60 @@
+{
+    "jobs": [
+        {
+            "years": "2020 — Present",
+            "company": "Atlassian",
+            "title": "P30/P40 Software Engineer",
+            "bulletPoints": [
+                { "content": "Promoted from P30 to P40 Software Engineer in early 2022" },
+                {
+                    "content": "Primarily operated as a front-end developer working on Jira's frontend. A React/Webpack mono-repo consisting all of the frontends across the various jira products. My teams focus was in Jira Service Management."
+                },
+                {
+                    "content": "Gained backend experience across Java/Kotlin monoliths and micro-services deployed to AWS infrastructure"
+                },
+                {
+                    "content": "Key responsibilities:",
+                    "children": [
+                        { "content": "Development of product features and bug fixes" },
+                        { "content": "Mentoring more junior team-mates" },
+                        { "content": "Leading technical projects" },
+                        { "content": "Communicating with stakeholders" },
+                        { "content": "Technical interviewing of potential hires" },
+                        { "content": "Participation in code-reviews" },
+                        {
+                            "content": "Participation in the incident management process including a 24/7 on-call roster"
+                        },
+                        { "content": "Helping with customer support queries" }
+                    ]
+                }
+            ]
+        },
+        {
+            "years": "2018 — 2020",
+            "company": "Adrenalin Media",
+            "title": "UI Developer/Senior UI Developer",
+            "bulletPoints": [
+                { "content": "Promoted to Senior UI Developer in December 2019" },
+                {
+                    "content": "Worked on projects for large clients including Hungry Jacks, Supercars, NBN and Sanofi"
+                },
+                {
+                    "content": " for building and maintaining web frontends and React Native mobile apps for iOS and Android"
+                }
+            ]
+        },
+        {
+            "years": "2015 — 2018",
+            "company": "Bright Agency",
+            "title": "Web Developer",
+            "bulletPoints": [
+                {
+                    "content": "Built a large number of websites for clients across Australia ranging from small business to Government, Not-for-profits, Healthcare and Education"
+                },
+                {
+                    "content": "experience in building and running WordPress websites and making custom themes"
+                }
+            ]
+        }
+    ]
+}

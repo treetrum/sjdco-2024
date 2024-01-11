@@ -13,11 +13,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <head>
-                <meta name="theme-color" content="#1A0033" />
+                <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+                <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1A0033" />
             </head>
-            <body className={`${inter.className} bg-gradientPurpleDark`}>
-                <div className="fixed left-0 top-0 h-lvh w-screen bg-gradient-radial-sm"></div>
-                <div className="z-1 relative text-pretty text-sm leading-relaxed text-white text-opacity-50 selection:bg-purple selection:text-gradientPurpleDark sm:text-base sm:leading-relaxed">
+            <body className={`${inter.className} bg-bg-gradient-end`}>
+                <div className="bg-gradient-radial fixed left-0 top-0 h-lvh w-screen"></div>
+                <div className="z-1 selection:text-bg-gradient-start relative text-pretty text-sm leading-relaxed selection:bg-purple sm:text-base sm:leading-relaxed ">
                     {children}
                 </div>
             </body>

@@ -29,7 +29,7 @@ export const SocialIcons = () => (
             href="https://github.com/treetrum/"
             target="_blank"
             rel="noreferrer noopener me"
-            className="block w-5 text-white text-opacity-100 transition-all hover:-translate-y-0.5 hover:text-purple"
+            className="block w-5 transition-all hover:-translate-y-0.5 hover:text-purple"
         >
             <GithubIcon />
         </a>
@@ -38,7 +38,7 @@ export const SocialIcons = () => (
             href="https://www.instagram.com/samjdavis/"
             target="_blank"
             rel="noreferrer noopener me"
-            className="block w-5 text-white text-opacity-100 transition-all hover:-translate-y-0.5 hover:text-purple"
+            className="block w-5 transition-all hover:-translate-y-0.5 hover:text-purple"
         >
             <InstagramIcon />
         </a>
@@ -47,7 +47,7 @@ export const SocialIcons = () => (
             href="https://www.linkedin.com/in/samjdavis13/"
             target="_blank"
             rel="noreferrer noopener me"
-            className="block w-5 text-white text-opacity-100 transition-all hover:-translate-y-0.5 hover:text-purple"
+            className="block w-5 transition-all hover:-translate-y-0.5 hover:text-purple"
         >
             <LinkedInIcon />
         </a>
@@ -56,7 +56,7 @@ export const SocialIcons = () => (
             href="https://mastodon.social/@treetrum"
             target="_blank"
             rel="noreferrer noopener me"
-            className="block w-5 text-white text-opacity-100 transition-all hover:-translate-y-0.5 hover:text-purple"
+            className="block w-5 transition-all hover:-translate-y-0.5 hover:text-purple"
         >
             <MastodonIcon />
         </a>

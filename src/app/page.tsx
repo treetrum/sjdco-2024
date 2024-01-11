@@ -8,16 +8,16 @@ export default function Home() {
         <div className="container mx-auto flex min-h-screen max-w-screen-xl flex-col items-start gap-12 px-6 py-12 sm:px-16 sm:py-16 lg:flex-row lg:gap-16 lg:py-24">
             <aside className="top-24 flex w-full flex-col gap-3 lg:sticky lg:max-w-[300px] xl:max-w-[390px]">
                 <h1 className="text-4xl font-bold text-purple sm:text-5xl">Sam Davis</h1>
-                <h5 className="text-lg text-white sm:text-xl">Web Developer</h5>
-                <p>
+                <h5 className="text-lg sm:text-xl">Web Developer</h5>
+                <p className="text-foreground/50">
                     A passionate web developer
                     <br />
                     working in Sydney, Australia
                 </p>
                 <SocialIcons />
             </aside>
-            <main className="prose w-full ">
-                <div className="space-y-5">
+            <main className="prose w-full">
+                <div className="text-foreground/50 space-y-5">
                     <Intro />
                 </div>
                 <div className="mt-12 lg:mt-20">
@@ -27,14 +27,14 @@ export default function Home() {
                     <div className="mt-4 sm:mt-8">
                         {employment.jobs.map((job) => (
                             <div className="mt-8 first:mt-0 sm:flex" key={job.company}>
-                                <div className="hidden sm:mb-0 sm:block sm:w-[150px] sm:flex-shrink-0 sm:text-base sm:text-white md:w-[200px] md:text-lg">
+                                <div className="mb-0 hidden w-[150px] flex-shrink-0 text-base sm:block md:w-[200px] md:text-lg">
                                     {job.years}
                                 </div>
                                 <div className="flex w-auto flex-col">
                                     <div className="flex-shrink-0 ">
-                                        <h4 className="mb-1 text-base text-white md:text-lg">
+                                        <h4 className="mb-1 text-base md:text-lg">
                                             <span>{job.company}</span>{' '}
-                                            <span className="text-right text-white text-opacity-50 sm:hidden">
+                                            <span className="text-foreground/50 text-right sm:hidden">
                                                 ({job.years})
                                             </span>
                                         </h4>
@@ -43,10 +43,10 @@ export default function Home() {
                                         {job.titles.map((t, i) => (
                                             <p
                                                 key={t}
-                                                className={`mt-2 text-xs font-semibold uppercase text-white first:mt-0 md:font-semibold ${
+                                                className={`mt-2 text-xs font-semibold uppercase first:mt-0 md:font-semibold ${
                                                     i == 0
-                                                        ? 'text-opacity-70'
-                                                        : 'text-opacity-30 line-through'
+                                                        ? 'text-foreground/70'
+                                                        : 'text-foreground/30 line-through'
                                                 }`}
                                             >
                                                 {t}
@@ -79,7 +79,7 @@ export default function Home() {
                         {technicalSkills.skills.map((skill, i) => (
                             <div className="mt-8 flex w-auto flex-col first:mt-0 sm:flex" key={i}>
                                 <div className="flex-shrink-0 ">
-                                    <h4 className="mb-1 text-base text-white md:text-lg">
+                                    <h4 className="mb-1 text-base md:text-lg">
                                         <span>{skill.category}</span>
                                     </h4>
                                 </div>

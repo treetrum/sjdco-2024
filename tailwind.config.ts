@@ -9,15 +9,14 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                purple: '#A268FF',
+                purple: 'rgb(var(--color-purple) / <alpha-value>)',
+                foreground: 'rgb(var(--color-foreground) / <alpha-value>)',
                 text: '#A59FAD',
-                gradientPurpleLight: '#1A0033',
-                gradientPurpleDark: '#0D001A',
+                'bg-gradient-end': 'rgb(var(--color-bg-gradient-end) / <alpha-value>)',
+                'bg-gradient-start': 'rgb(var(--color-bg-gradient-start) / <alpha-value>)',
             },
             backgroundImage: ({ theme }) => ({
-                'gradient-radial-sm': `radial-gradient(circle at top center, ${theme(
-                    'colors.gradientPurpleLight',
-                )} 0% 15%, ${theme('colors.gradientPurpleDark')} 100%);`,
+                'gradient-radial': `radial-gradient(circle at top center, rgb(var(--color-bg-gradient-start)) 0% 15%, rgb(var(--color-bg-gradient-end)) 100%);`,
             }),
         },
     },

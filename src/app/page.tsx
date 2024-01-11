@@ -43,8 +43,10 @@ export default function Home() {
                                         {job.titles.map((t, i) => (
                                             <p
                                                 key={t}
-                                                className={`mt-2 text-xs font-semibold uppercase text-white text-opacity-70 first:mt-0 md:font-semibold ${
-                                                    i == 0 ? '' : 'text-opacity-30 line-through'
+                                                className={`mt-2 text-xs font-semibold uppercase text-white first:mt-0 md:font-semibold ${
+                                                    i == 0
+                                                        ? 'text-opacity-70'
+                                                        : 'text-opacity-30 line-through'
                                                 }`}
                                             >
                                                 {t}

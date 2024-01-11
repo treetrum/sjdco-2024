@@ -1,16 +1,20 @@
 {
     "skills": [
         {
-            "category": "Languages / Frameworks",
-            "content": "HTML, CSS/Sass, JavaScript/TypeScript/Flow, React, React Native, Webpack, Parcel, Node/NPM, NextJS, Jest, Enzyme, React Testing Library, Cypress, Graphql (Apollo & Relay) Java, Kotlin, Spring, Gradle, PHP, WordPress, Swift, SwiftUI"
+            "category": "Languages",
+            "content": "HTML, CSS, JavaScript/TypeScript, Flow, Java, Kotlin, PHP, Swift"
         },
         {
-            "category": "Developer tooling ",
+            "category": "Frameworks",
+            "content": "React, React Native, Webpack, Parcel, Node/NPM, NextJS, Jest, Enzyme, React Testing Library, Cypress, Graphql (Apollo & Relay), Styled Components, Tailwind, Spring, Gradle, WordPress, SwiftUI"
+        },
+        {
+            "category": "Development tooling",
             "content": "Git (Github & BitBucket), unit and integration testing, visual regression testing, AWS, Docker, CI/CD (Bitbucket pipelines & Github actions)"
         },
         {
-            "category": "Design tooling ",
-            "content": "Figma, Adobe Creative Suite, Sketch, InVision"
+            "category": "Design tooling",
+            "content": "Figma, Adobe Creative Suite, Sketch"
         }
     ]
 }

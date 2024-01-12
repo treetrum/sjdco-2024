@@ -10,14 +10,12 @@
     --color-bg-gradient-end: 230 230 230;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-purple: 162 104 255;
-        --color-foreground: 255 255 255;
+.dark {
+    --color-purple: 162 104 255;
+    --color-foreground: 255 255 255;
 
-        --color-bg-gradient-start: 26 0 51;
-        --color-bg-gradient-end: 13 0 26;
-    }
+    --color-bg-gradient-start: 26 0 51;
+    --color-bg-gradient-end: 13 0 26;
 }
 
 body {

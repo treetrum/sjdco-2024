@@ -2,10 +2,12 @@ import Intro from '../content/intro.mdx';
 import employment from '../content/employment-history.json';
 import technicalSkills from '../content/technical-skills.json';
 import { SocialIcons } from './components/SocialIcons';
+import { ThemeController } from './components/Theme';
 
 export default function Home() {
     return (
         <div className="container mx-auto flex min-h-screen max-w-screen-xl flex-col items-start gap-12 px-6 py-12 sm:px-16 sm:py-16 lg:flex-row lg:gap-16 lg:py-24">
+            <ThemeController />
             <aside className="top-24 flex w-full flex-col gap-3 lg:sticky lg:max-w-[300px] xl:max-w-[390px]">
                 <h1 className="text-4xl font-bold text-purple sm:text-5xl">Sam Davis</h1>
                 <h5 className="text-lg sm:text-xl">Web Developer</h5>
@@ -54,7 +56,7 @@ export default function Home() {
                                         ))}
                                     </div>
                                     {job.content && (
-                                        <div className="mt-2 text-sm leading-relaxed">
+                                        <div className="text-foreground/50 mt-2 text-sm leading-relaxed">
                                             {job.content}
                                         </div>
                                     )}
@@ -83,7 +85,9 @@ export default function Home() {
                                         <span>{skill.category}</span>
                                     </h4>
                                 </div>
-                                <div className="mt-1 text-sm leading-relaxed">{skill.content}</div>
+                                <div className="text-foreground/50 mt-1 text-sm leading-relaxed">
+                                    {skill.content}
+                                </div>
                             </div>
                         ))}
                     </div>

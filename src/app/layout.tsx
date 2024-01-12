@@ -1,4 +1,5 @@
-import type { Metadata } from 'next';
+import { type Metadata } from 'next';
+import { cookies } from 'next/headers';
 import { Inter } from 'next/font/google';
 import './globals.css';
 
@@ -10,11 +11,17 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+    const theme = cookies().get('theme');
+    const isDark = theme?.value !== 'light';
+
     return (
-        <html lang="en">
+        <html lang="en" className={isDark ? 'dark' : ''}>
             <head>
-                <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
-                <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1A0033" />
+                {isDark ? (
+                    <meta name="theme-color" content="#1A0033" />
+                ) : (
+                    <meta name="theme-color" content="#FFFFFF" />
+                )}
             </head>
             <body className={`${inter.className} bg-bg-gradient-end`}>
                 <div className="bg-gradient-radial fixed left-0 top-0 h-lvh w-screen"></div>

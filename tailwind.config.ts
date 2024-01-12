@@ -11,15 +11,15 @@ const config: Config = {
             colors: {
                 purple: 'rgb(var(--color-purple) / <alpha-value>)',
                 foreground: 'rgb(var(--color-foreground) / <alpha-value>)',
-                text: '#A59FAD',
                 'bg-gradient-end': 'rgb(var(--color-bg-gradient-end) / <alpha-value>)',
                 'bg-gradient-start': 'rgb(var(--color-bg-gradient-start) / <alpha-value>)',
             },
-            backgroundImage: ({ theme }) => ({
+            backgroundImage: {
                 'gradient-radial': `radial-gradient(circle at top center, rgb(var(--color-bg-gradient-start)) 0% 15%, rgb(var(--color-bg-gradient-end)) 100%);`,
-            }),
+            },
         },
     },
     plugins: [],
+    darkMode: 'class',
 };
 export default config;

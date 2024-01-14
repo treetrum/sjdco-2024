@@ -12,9 +12,9 @@ export default function Home() {
                 <h1 className="text-4xl font-bold text-purple sm:text-5xl">Sam Davis</h1>
                 <h5 className="text-lg sm:text-xl">Web Developer</h5>
                 <p className="text-foreground/50">
-                    A passionate web developer
+                    Passionate web developer
                     <br />
-                    working in Sydney, Australia
+                    from Sydney, Australia
                 </p>
                 <SocialIcons />
             </aside>

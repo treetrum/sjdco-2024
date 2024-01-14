@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
     title: 'Sam Davis - Web Developer',
-    description: 'A passionate web developer working in Sydney, Australia',
+    description: 'Passionate and experienced web developer from Sydney, Australia',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -24,8 +24,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 )}
             </head>
             <body className={`${inter.className} bg-bg-gradient-end`}>
-                <div className="bg-gradient-radial fixed left-0 top-0 h-lvh w-screen"></div>
-                <div className="z-1 selection:text-bg-gradient-start relative text-pretty text-sm leading-relaxed selection:bg-purple sm:text-base sm:leading-relaxed ">
+                <div className="fixed left-0 top-0 h-lvh w-screen bg-gradient-radial"></div>
+                <div className="z-1 relative text-pretty text-sm leading-relaxed selection:bg-purple selection:text-bg-gradient-start sm:text-base sm:leading-relaxed ">
                     {children}
                 </div>
             </body>

@@ -1,8 +1,8 @@
 import Intro from '../content/intro.mdx';
 import employment from '../content/employment-history.json';
 import technicalSkills from '../content/technical-skills.json';
-import { SocialIcons } from './components/SocialIcons';
-import { ThemeController } from './components/Theme';
+import { SocialIcons } from '../components/SocialIcons';
+import { ThemeController } from '../components/Theme';
 
 export default function Home() {
     return (
@@ -19,7 +19,7 @@ export default function Home() {
                 <SocialIcons />
             </aside>
             <main className="prose w-full">
-                <div className="text-foreground/50 space-y-5">
+                <div className="space-y-5 text-foreground/50">
                     <Intro />
                 </div>
                 <div className="mt-12 lg:mt-20">
@@ -36,7 +36,7 @@ export default function Home() {
                                     <div className="flex-shrink-0 ">
                                         <h4 className="mb-1 text-base md:text-lg">
                                             <span>{job.company}</span>{' '}
-                                            <span className="text-foreground/50 text-right sm:hidden">
+                                            <span className="text-right text-foreground/50 sm:hidden">
                                                 ({job.years})
                                             </span>
                                         </h4>
@@ -56,7 +56,7 @@ export default function Home() {
                                         ))}
                                     </div>
                                     {job.content && (
-                                        <div className="text-foreground/50 mt-2 text-sm leading-relaxed">
+                                        <div className="mt-2 text-sm leading-relaxed text-foreground/50">
                                             {job.content}
                                         </div>
                                     )}
@@ -85,7 +85,7 @@ export default function Home() {
                                         <span>{skill.category}</span>
                                     </h4>
                                 </div>
-                                <div className="text-foreground/50 mt-1 text-sm leading-relaxed">
+                                <div className="mt-1 text-sm leading-relaxed text-foreground/50">
                                     {skill.content}
                                 </div>
                             </div>

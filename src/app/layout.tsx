@@ -2,6 +2,7 @@ import { type Metadata } from 'next';
 import { cookies } from 'next/headers';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div className="z-1 relative text-pretty text-sm leading-relaxed selection:bg-purple selection:text-bg-gradient-start sm:text-base sm:leading-relaxed ">
                     {children}
                 </div>
+                <Analytics />
             </body>
         </html>
     );

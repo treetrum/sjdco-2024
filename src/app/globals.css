@@ -23,9 +23,9 @@ body {
 }
 
 a {
-    transition: 100ms ease color;
+    @apply transition-colors;
 }
 
 .prose a {
-    @apply text-foreground font-medium underline hover:text-purple;
+    @apply font-medium text-foreground underline hover:text-purple;
 }

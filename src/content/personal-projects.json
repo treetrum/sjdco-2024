@@ -1,0 +1,10 @@
+[
+    {
+        "title": "Leatherbound",
+        "subtitle": "iOS and Mac Book tracking app",
+        "description": "Leatherbound is a reading companion app, built natively for iOS and Mac using Swift/SwiftUI. Its purpose is to serve as a privacy-respecting, non-social alternative to Goodreads.",
+        "tags": ["Swift", "SwiftUI", "MongoDB Realm"],
+        "link": "/leatherbound",
+        "image": "/leatherbound-icon.webp"
+    }
+]

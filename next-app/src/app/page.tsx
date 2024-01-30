@@ -1,4 +1,4 @@
-import { Home } from '../../payload-types';
+import { type Home } from '../../../shared/payload-types';
 import { HomePage } from './HomePage';
 
 export default async function Home() {

@@ -6,9 +6,8 @@ import technicalSkills from '../content/technical-skills.json';
 import personalProjects from '../content/personal-projects.json';
 import { SocialIcons } from '../components/SocialIcons';
 import { ThemeController } from '../components/Theme';
-import { Home } from '../../payload-types';
+import { type Home } from '../../../shared/payload-types';
 import { useLivePreview } from '@payloadcms/live-preview-react';
-import { serializeLexical } from '@/utils/lexical/serializeLexical';
 import { LexicalRenderer } from '@/utils/lexical/LexicalRenderer';
 
 export const HomePage = ({ data: initialData }: { data: Home }) => {

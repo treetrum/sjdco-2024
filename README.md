@@ -14,5 +14,5 @@
 
 ### Deployment
 
--   NextJS is hosted on Vercel (and deploys automatically from master)
--   PayloadCMS is hosted on Render (and deploys automatically from master)
+-   NextJS is hosted on Vercel (and deploys automatically from `main`)
+-   PayloadCMS is hosted on Render (and deploys automatically from `main`)

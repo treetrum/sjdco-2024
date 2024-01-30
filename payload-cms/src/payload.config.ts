@@ -20,6 +20,7 @@ export default buildConfig({
     collections: [Users],
     typescript: {
         outputFile: path.resolve(__dirname, "../../shared/payload-types.ts"),
+        declare: false,
     },
     graphQL: {
         schemaOutputFile: path.resolve(__dirname, "generated-schema.graphql"),

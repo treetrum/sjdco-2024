@@ -18,7 +18,6 @@ export default buildConfig({
             collections: [Projects.slug],
         },
     },
-    cors: [process.env.PAYLOAD_PUBLIC_SITE_URL],
     editor: lexicalEditor({}),
     collections: [Users, Projects],
     globals: [Home],

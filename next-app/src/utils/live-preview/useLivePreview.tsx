@@ -20,7 +20,6 @@ export const useLivePreview = <T extends {}>(props: {
         (mergedData: any) => {
             // When a change is made, the `onChange` callback will be called with the merged data
             // Set this merged data into state so that React will re-render the UI
-            console.log({ data, mergedData });
             // @ts-expect-error
             if (data.createdAt === mergedData.createdAt && data.id === mergedData.id) {
                 setData(mergedData);

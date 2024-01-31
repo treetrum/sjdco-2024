@@ -9,22 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@lexical/list": "^0.13.1",
-    "@lexical/rich-text": "^0.13.1",
     "@mdx-js/loader": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.0.4",
     "@payloadcms/live-preview": "^0.2.2",
-    "@payloadcms/richtext-lexical": "^0.5.2",
     "@types/mdx": "^2.0.10",
     "@vercel/analytics": "^1.1.2",
     "escape-html": "^1.0.3",
-    "lexical": "^0.13.1",
     "next": "14.0.4",
     "react": "^18",
     "react-cookie": "^7.0.1",
-    "react-dom": "^18",
-    "slate": "^0.101.5"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@types/escape-html": "^1.0.4",

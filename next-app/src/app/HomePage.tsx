@@ -13,7 +13,7 @@ import { LexicalRenderer } from '@/utils/lexical/LexicalRenderer';
 export const HomePage = ({ data: initialData }: { data: Home }) => {
     const { data } = useLivePreview<Home>({
         initialData: initialData,
-        serverURL: 'http://localhost:3000',
+        serverURL: process.env.NEXT_PUBLIC_CMS_URL!,
         depth: 1,
     });
 

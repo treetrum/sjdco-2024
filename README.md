@@ -4,13 +4,18 @@
 
 -   [NextJS](https://nextjs.org/)
 -   [PayloadCMS](https://payloadcms.com/)
+-   [Vercel](https://vercel.com/) (For hosting NextJS app and Postgres database)
 
 ### Run locally
 
--   `npm install`
--   `npm run dev`
+-   `npm install` in both `next-app` and `payload-cms` directories
+-   `npm run dev` in root directory
 -   Open [http://localhost:3000](http://localhost:3000) for the PayloadCMS admin
 -   Open [http://localhost:3001](http://localhost:3001) for the NextJS frontend
+
+##### Generate typescript definitions
+
+-   `npm run generate-types` in root directory after making changes to Collections/Globals in PayloadCMS
 
 ### Deployment
 

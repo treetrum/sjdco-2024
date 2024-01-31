@@ -58,6 +58,17 @@ export default buildConfig({
                     type: "richText",
                 },
             ],
+            hooks: {
+                afterChange: [
+                    async ({ doc }) => {
+                        await fetch(
+                            `${process.env.PAYLOAD_PUBLIC_SITE_URL}/api/revalidate`,
+                            { method: "POST" }
+                        );
+                        return doc;
+                    },
+                ],
+            },
         },
     ],
 });

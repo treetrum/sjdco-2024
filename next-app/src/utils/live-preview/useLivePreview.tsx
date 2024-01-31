@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { subscribe, ready, unsubscribe } from '@payloadcms/live-preview';
 
-export const useLivePreview = <T extends {}>(props: {
+export const useLivePreview = <T extends { updatedAt?: string | null }>(props: {
     depth?: number;
     initialData: T;
     serverURL: string;
@@ -20,8 +20,7 @@ export const useLivePreview = <T extends {}>(props: {
         (mergedData: any) => {
             // When a change is made, the `onChange` callback will be called with the merged data
             // Set this merged data into state so that React will re-render the UI
-            // @ts-expect-error
-            if (data.createdAt === mergedData.createdAt && data.id === mergedData.id) {
+            if (data.updatedAt === mergedData.updatedAt) {
                 setData(mergedData);
             }
             setIsLoading(false);

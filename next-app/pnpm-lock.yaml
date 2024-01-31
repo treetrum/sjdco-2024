@@ -15,7 +15,7 @@ dependencies:
     specifier: ^14.0.4
     version: 14.1.0(@mdx-js/loader@3.0.0)(@mdx-js/react@3.0.0)
   '@payloadcms/live-preview':
-    specifier: ^0.2.2
+    specifier: ^0.2.1
     version: 0.2.2
   '@types/mdx':
     specifier: ^2.0.10

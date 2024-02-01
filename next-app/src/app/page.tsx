@@ -12,10 +12,6 @@ export default async function Home({ searchParams }: { searchParams: Record<stri
     ]);
 
     return (
-        <HomePage
-            initialHomeData={homeData}
-            initialProjectsData={projectsData.docs ?? []}
-            initialJobsData={jobsData.docs ?? []}
-        />
+        <HomePage home={homeData} projects={projectsData.docs ?? []} jobs={jobsData.docs ?? []} />
     );
 }

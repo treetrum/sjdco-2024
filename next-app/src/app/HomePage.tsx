@@ -1,6 +1,5 @@
 'use client';
 
-import technicalSkills from '../content/technical-skills.json';
 import { SocialIcons } from '../components/SocialIcons';
 import { ThemeController } from '../components/Theme';
 import {
@@ -14,14 +13,14 @@ import { Project } from './Project';
 import { Job } from './Job';
 
 interface Props {
-    initialHomeData: Home;
-    initialProjectsData: ProjectType[];
-    initialJobsData: JobType[];
+    home: Home;
+    projects: ProjectType[];
+    jobs: JobType[];
 }
 
-export const HomePage = ({ initialHomeData, initialProjectsData, initialJobsData }: Props) => {
-    const { data } = useLivePreview<Home>({
-        initialData: initialHomeData,
+export const HomePage = (props: Props) => {
+    const { data: home } = useLivePreview<Home>({
+        initialData: props.home,
         serverURL: process.env.NEXT_PUBLIC_CMS_URL!,
         depth: 1,
     });
@@ -30,52 +29,52 @@ export const HomePage = ({ initialHomeData, initialProjectsData, initialJobsData
         <div className="container mx-auto flex min-h-screen max-w-screen-xl flex-col items-start gap-12 px-6 py-12 sm:px-16 sm:py-16 lg:flex-row lg:gap-16 lg:py-24">
             <ThemeController />
             <aside className="top-24 flex w-full flex-col gap-3 lg:sticky lg:max-w-[300px] xl:max-w-[390px]">
-                <h1 className="text-4xl font-bold text-purple sm:text-5xl">{data.title}</h1>
-                <h5 className="text-lg sm:text-xl">{data.subtitle}</h5>
+                <h1 className="text-4xl font-bold text-purple sm:text-5xl">{home.title}</h1>
+                <h5 className="text-lg sm:text-xl">{home.subtitle}</h5>
                 <p
                     className="text-foreground/50"
-                    dangerouslySetInnerHTML={{ __html: data.byline ?? '' }}
+                    dangerouslySetInnerHTML={{ __html: home.byline ?? '' }}
                 ></p>
                 <SocialIcons />
             </aside>
             <main className="w-full">
                 <div className="prose space-y-5 text-foreground/50">
-                    <LexicalRenderer content={data.intro} />
+                    <LexicalRenderer content={home.intro} />
                 </div>
-                {initialProjectsData.length > 0 && (
+                {props.projects.length > 0 && (
                     <div className="mt-12 lg:mt-20">
                         <h3 className="text-xl font-bold text-purple sm:text-2xl">
                             Personal Projects
                         </h3>
                         <div className="mt-4 sm:mt-8">
-                            {initialProjectsData.map((p) => (
-                                <Project project={p} key={p.id} />
+                            {props.projects.map((project) => (
+                                <Project key={project.id} project={project} />
                             ))}
                         </div>
                     </div>
                 )}
-                {initialJobsData.length > 0 && (
+                {props.jobs.length > 0 && (
                     <div className="mt-12 lg:mt-20">
                         <h3 className="text-xl font-bold text-purple sm:text-2xl">
                             Employment History
                         </h3>
                         <div className="mt-4 sm:mt-8">
-                            {initialJobsData.map((j) => (
-                                <Job key={j.id} job={j} />
+                            {props.jobs.map((job) => (
+                                <Job key={job.id} job={job} />
                             ))}
                         </div>
                     </div>
                 )}
-                {data.technicalSkills && (
+                {home.technicalSkills && (
                     <div className="mt-12 lg:mt-20">
                         <h3 className="text-xl font-bold text-purple sm:text-2xl">
                             Technical skills
                         </h3>
                         <div className="pt-4 sm:pt-4">
-                            {data.technicalSkills.map((skill, i) => (
+                            {home.technicalSkills.map((skill) => (
                                 <div
+                                    key={skill.id}
                                     className="mt-8 flex w-auto flex-col first:mt-0 sm:flex"
-                                    key={i}
                                 >
                                     <div className="flex-shrink-0 ">
                                         <h4 className="mb-1 text-base md:text-lg">

@@ -8,6 +8,9 @@ export const Home: GlobalConfig = {
         read: loggedInPreviewingOrPublished,
         update: loggedIn,
     },
+    versions: {
+        drafts: true,
+    },
     fields: [
         {
             type: "text",
@@ -24,6 +27,20 @@ export const Home: GlobalConfig = {
         {
             name: "intro",
             type: "richText",
+        },
+        {
+            name: "technicalSkills",
+            type: "array",
+            fields: [
+                {
+                    name: "category",
+                    type: "text",
+                },
+                {
+                    name: "content",
+                    type: "text",
+                },
+            ],
         },
     ],
     hooks: {

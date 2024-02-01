@@ -66,23 +66,30 @@ export const HomePage = ({ initialHomeData, initialProjectsData, initialJobsData
                         </div>
                     </div>
                 )}
-                <div className="mt-12 lg:mt-20">
-                    <h3 className="text-xl font-bold text-purple sm:text-2xl">Technical skills</h3>
-                    <div className="pt-4 sm:pt-4">
-                        {technicalSkills.skills.map((skill, i) => (
-                            <div className="mt-8 flex w-auto flex-col first:mt-0 sm:flex" key={i}>
-                                <div className="flex-shrink-0 ">
-                                    <h4 className="mb-1 text-base md:text-lg">
-                                        <span>{skill.category}</span>
-                                    </h4>
+                {data.technicalSkills && (
+                    <div className="mt-12 lg:mt-20">
+                        <h3 className="text-xl font-bold text-purple sm:text-2xl">
+                            Technical skills
+                        </h3>
+                        <div className="pt-4 sm:pt-4">
+                            {data.technicalSkills.map((skill, i) => (
+                                <div
+                                    className="mt-8 flex w-auto flex-col first:mt-0 sm:flex"
+                                    key={i}
+                                >
+                                    <div className="flex-shrink-0 ">
+                                        <h4 className="mb-1 text-base md:text-lg">
+                                            <span>{skill.category}</span>
+                                        </h4>
+                                    </div>
+                                    <div className="mt-1 text-sm leading-relaxed text-foreground/50">
+                                        {skill.content}
+                                    </div>
                                 </div>
-                                <div className="mt-1 text-sm leading-relaxed text-foreground/50">
-                                    {skill.content}
-                                </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
-                </div>
+                )}
             </main>
         </div>
     );

@@ -59,6 +59,7 @@ export interface Project {
     | null;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 export interface Job {
   id: string;
@@ -93,6 +94,7 @@ export interface Job {
     | null;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 export interface PayloadPreference {
   id: string;
@@ -140,6 +142,14 @@ export interface Home {
     };
     [k: string]: unknown;
   } | null;
+  technicalSkills?:
+    | {
+        category?: string | null;
+        content?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  _status?: ('draft' | 'published') | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }

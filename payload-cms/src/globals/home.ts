@@ -10,17 +10,14 @@ export const Home: GlobalConfig = {
         {
             type: "text",
             name: "title",
-            required: true,
         },
         {
             type: "text",
             name: "subtitle",
-            required: true,
         },
         {
             type: "text",
             name: "byline",
-            required: true,
         },
         {
             name: "intro",

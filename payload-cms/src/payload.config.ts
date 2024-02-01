@@ -1,12 +1,12 @@
 import path from "path";
 import { payloadCloud } from "@payloadcms/plugin-cloud";
-import { postgresAdapter } from "@payloadcms/db-postgres";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { buildConfig } from "payload/config";
 import Users from "./collections/Users";
 import { Home } from "./globals/home";
 import { Projects } from "./collections/Projects";
+import { mongooseAdapter } from "@payloadcms/db-mongodb";
 
 export default buildConfig({
     admin: {
@@ -29,9 +29,7 @@ export default buildConfig({
         schemaOutputFile: path.resolve(__dirname, "generated-schema.graphql"),
     },
     plugins: [payloadCloud()],
-    db: postgresAdapter({
-        pool: {
-            connectionString: process.env.DATABASE_URI,
-        },
+    db: mongooseAdapter({
+        url: process.env.DATABASE_URI,
     }),
 });

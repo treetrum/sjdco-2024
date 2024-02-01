@@ -12,12 +12,10 @@ export const Projects: CollectionConfig = {
         {
             name: "title",
             type: "text",
-            required: true,
         },
         {
             name: "subtitle",
             type: "text",
-            required: true,
         },
         {
             name: "description",

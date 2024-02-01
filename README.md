@@ -4,7 +4,12 @@
 
 -   [NextJS](https://nextjs.org/)
 -   [PayloadCMS](https://payloadcms.com/)
--   [Vercel](https://vercel.com/) (For hosting NextJS app and Postgres database)
+
+### Infrastructure
+
+-   [Vercel](https://vercel.com/) (Hosts the NextJS frontend)
+-   [Render](https://render.com/) (Hosts the PayloadCMS admin)
+-   [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) (Hosts the PayloadCMS database)
 
 ### Run locally
 

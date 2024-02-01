@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently --names CMS,NEXT -c auto \"npm run dev:cms\" \"npm run dev:next\"",
-    "dev:cms": "cd next-app && npm run dev",
+    "dev:cms": "cd payload-cms && npm run dev",
     "generate:types": "cd payload-cms && npm run generate:types",
-    "dev:next": "cd payload-cms && npm run dev"
+    "dev:next": "cd next-app && npm run dev"
   },
   "author": "",
   "license": "ISC",

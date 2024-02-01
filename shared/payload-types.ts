@@ -18,7 +18,7 @@ export interface Config {
   };
 }
 export interface User {
-  id: number;
+  id: string;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -31,9 +31,9 @@ export interface User {
   password: string | null;
 }
 export interface Project {
-  id: number;
-  title: string;
-  subtitle: string;
+  id: string;
+  title?: string | null;
+  subtitle?: string | null;
   description?: {
     root: {
       children: {
@@ -60,10 +60,10 @@ export interface Project {
   createdAt: string;
 }
 export interface PayloadPreference {
-  id: number;
+  id: string;
   user: {
     relationTo: 'users';
-    value: number | User;
+    value: string | User;
   };
   key?: string | null;
   value?:
@@ -79,17 +79,17 @@ export interface PayloadPreference {
   createdAt: string;
 }
 export interface PayloadMigration {
-  id: number;
+  id: string;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
 }
 export interface Home {
-  id: number;
-  title: string;
-  subtitle: string;
-  byline: string;
+  id: string;
+  title?: string | null;
+  subtitle?: string | null;
+  byline?: string | null;
   intro?: {
     root: {
       children: {

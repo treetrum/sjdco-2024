@@ -29,7 +29,7 @@ export const HomePage = ({ initialHomeData, initialProjectsData }: Props) => {
                 <h5 className="text-lg sm:text-xl">{data.subtitle}</h5>
                 <p
                     className="text-foreground/50"
-                    dangerouslySetInnerHTML={{ __html: data.byline }}
+                    dangerouslySetInnerHTML={{ __html: data.byline ?? '' }}
                 ></p>
                 <SocialIcons />
             </aside>

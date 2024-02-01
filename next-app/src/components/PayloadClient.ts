@@ -25,7 +25,11 @@ export class PayloadClient {
         url.searchParams.set('locale', 'undefined');
         url.searchParams.set('draft', this.previewMode ? 'true' : 'false');
         url.searchParams.set('depth', '1');
-        return fetch(url, { next: { tags: ['payload'] } })
+
+        return fetch(url, {
+            next: { tags: ['payload'] },
+            cache: this.previewMode ? 'no-cache' : 'default',
+        })
             .then((res) => res.json())
             .catch((e) => {
                 console.error(e);

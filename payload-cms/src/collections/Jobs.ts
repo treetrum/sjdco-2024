@@ -2,8 +2,8 @@ import { CollectionConfig } from "payload/types";
 import { revalidateNextCache } from "../hooks/revalidateNextCache";
 import { loggedIn, loggedInPreviewingOrPublished } from "../access";
 
-export const Projects: CollectionConfig = {
-    slug: "projects",
+export const Jobs: CollectionConfig = {
+    slug: "jobs",
     access: {
         read: loggedInPreviewingOrPublished,
         create: loggedIn,
@@ -11,31 +11,32 @@ export const Projects: CollectionConfig = {
         delete: loggedIn,
     },
     admin: {
-        useAsTitle: "title",
-        defaultColumns: ["title", "createdAt", "updatedAt"],
-    },
-    hooks: {
-        afterChange: [revalidateNextCache],
+        useAsTitle: "company",
+        defaultColumns: ["company", "createdAt", "updatedAt"],
     },
     versions: {
         drafts: true,
     },
+    hooks: {
+        afterChange: [revalidateNextCache],
+    },
     fields: [
         {
-            name: "title",
+            name: "company",
             type: "text",
         },
         {
-            name: "subtitle",
+            name: "years",
             type: "text",
+        },
+        {
+            name: "positions",
+            type: "array",
+            fields: [{ type: "text", name: "position" }],
         },
         {
             name: "description",
             type: "richText",
-        },
-        {
-            name: "url",
-            type: "text",
         },
         {
             name: "tags",

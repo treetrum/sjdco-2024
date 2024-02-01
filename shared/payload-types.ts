@@ -10,6 +10,7 @@ export interface Config {
   collections: {
     users: User;
     projects: Project;
+    jobs: Job;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -50,6 +51,40 @@ export interface Project {
     [k: string]: unknown;
   } | null;
   url?: string | null;
+  tags?:
+    | {
+        tag?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+export interface Job {
+  id: string;
+  company?: string | null;
+  years?: string | null;
+  positions?:
+    | {
+        position?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  description?: {
+    root: {
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      type: string;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   tags?:
     | {
         tag?: string | null;

@@ -1,10 +1,12 @@
 import { GlobalConfig } from "payload/types";
 import { revalidateNextCache } from "../hooks/revalidateNextCache";
+import { loggedIn, loggedInPreviewingOrPublished } from "../access";
 
 export const Home: GlobalConfig = {
     slug: "home",
     access: {
-        read: () => true,
+        read: loggedInPreviewingOrPublished,
+        update: loggedIn,
     },
     fields: [
         {

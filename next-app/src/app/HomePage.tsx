@@ -1,20 +1,25 @@
 'use client';
 
-import employment from '../content/employment-history.json';
 import technicalSkills from '../content/technical-skills.json';
 import { SocialIcons } from '../components/SocialIcons';
 import { ThemeController } from '../components/Theme';
-import { type Project as ProjectType, type Home } from '../../../shared/payload-types';
+import {
+    type Project as ProjectType,
+    type Home,
+    Job as JobType,
+} from '../../../shared/payload-types';
 import { LexicalRenderer } from '@/utils/lexical/LexicalRenderer';
 import { useLivePreview } from '@/utils/live-preview/useLivePreview';
 import { Project } from './Project';
+import { Job } from './Job';
 
 interface Props {
     initialHomeData: Home;
     initialProjectsData: ProjectType[];
+    initialJobsData: JobType[];
 }
 
-export const HomePage = ({ initialHomeData, initialProjectsData }: Props) => {
+export const HomePage = ({ initialHomeData, initialProjectsData, initialJobsData }: Props) => {
     const { data } = useLivePreview<Home>({
         initialData: initialHomeData,
         serverURL: process.env.NEXT_PUBLIC_CMS_URL!,
@@ -37,67 +42,30 @@ export const HomePage = ({ initialHomeData, initialProjectsData }: Props) => {
                 <div className="prose space-y-5 text-foreground/50">
                     <LexicalRenderer content={data.intro} />
                 </div>
-                <div className="mt-12 lg:mt-20">
-                    <h3 className="text-xl font-bold text-purple sm:text-2xl">Personal Projects</h3>
-                    <div className="mt-4 sm:mt-8">
-                        {initialProjectsData.map((p) => {
-                            return <Project project={p} key={p.id} />;
-                        })}
+                {initialProjectsData.length > 0 && (
+                    <div className="mt-12 lg:mt-20">
+                        <h3 className="text-xl font-bold text-purple sm:text-2xl">
+                            Personal Projects
+                        </h3>
+                        <div className="mt-4 sm:mt-8">
+                            {initialProjectsData.map((p) => (
+                                <Project project={p} key={p.id} />
+                            ))}
+                        </div>
                     </div>
-                </div>
-                <div className="mt-12 lg:mt-20">
-                    <h3 className="text-xl font-bold text-purple sm:text-2xl">
-                        Employment History
-                    </h3>
-                    <div className="mt-4 sm:mt-8">
-                        {employment.jobs.map((job) => (
-                            <div className="mt-8 first:mt-0 sm:flex" key={job.company}>
-                                <div className="mb-0 hidden w-[150px] flex-shrink-0 text-base sm:block md:w-[200px] md:text-lg">
-                                    {job.years}
-                                </div>
-                                <div className="flex w-auto flex-col">
-                                    <div className="flex-shrink-0 ">
-                                        <h4 className="mb-1 text-base md:text-lg">
-                                            <span>{job.company}</span>{' '}
-                                            <span className="text-right text-foreground/50 sm:hidden">
-                                                ({job.years})
-                                            </span>
-                                        </h4>
-                                    </div>
-                                    <div className="mt-1">
-                                        {job.titles.map((t, i) => (
-                                            <p
-                                                key={t}
-                                                className={`mt-2 text-xs font-semibold uppercase first:mt-0 md:font-semibold ${
-                                                    i == 0
-                                                        ? 'text-foreground/70'
-                                                        : 'text-foreground/30 line-through'
-                                                }`}
-                                            >
-                                                {t}
-                                            </p>
-                                        ))}
-                                    </div>
-                                    {job.content && (
-                                        <div className="mt-2 text-sm leading-relaxed text-foreground/50">
-                                            {job.content}
-                                        </div>
-                                    )}
-                                    <div className="mt-4 inline-flex flex-wrap gap-2">
-                                        {job.technologies.map((t) => (
-                                            <span
-                                                className="rounded-md border-[1px] border-purple border-opacity-15 bg-purple bg-opacity-10 px-1.5 py-1 text-xs text-purple"
-                                                key={t}
-                                            >
-                                                {t}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+                )}
+                {initialJobsData.length > 0 && (
+                    <div className="mt-12 lg:mt-20">
+                        <h3 className="text-xl font-bold text-purple sm:text-2xl">
+                            Employment History
+                        </h3>
+                        <div className="mt-4 sm:mt-8">
+                            {initialJobsData.map((j) => (
+                                <Job key={j.id} job={j} />
+                            ))}
+                        </div>
                     </div>
-                </div>
+                )}
                 <div className="mt-12 lg:mt-20">
                     <h3 className="text-xl font-bold text-purple sm:text-2xl">Technical skills</h3>
                     <div className="pt-4 sm:pt-4">

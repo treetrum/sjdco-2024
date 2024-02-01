@@ -1,6 +1,6 @@
 'use client';
 
-import { Cookies, useCookies } from 'react-cookie';
+import { useCookies } from 'react-cookie';
 
 export const ThemeController = () => {
     const [cookies, setCookies] = useCookies(['theme']);

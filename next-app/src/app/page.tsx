@@ -2,8 +2,8 @@ import { notFound } from 'next/navigation';
 import { HomePage } from './HomePage';
 import { PayloadClient } from '@/components/PayloadClient';
 
-export default async function Home() {
-    const client = new PayloadClient();
+export default async function Home({ searchParams }: { searchParams: Record<string, string> }) {
+    const client = new PayloadClient(searchParams);
     const homeData = await client.fetchHome().catch(() => notFound());
     const projectsData = await client.fetchProjects().catch(() => notFound());
     const jobsData = await client.fetchJobs().catch(() => notFound());

@@ -12,14 +12,12 @@ export class PayloadClient {
     serverURL: string;
     previewMode: boolean;
 
-    constructor() {
+    constructor(searchParams: Record<string, string>) {
         if (!process.env.NEXT_PUBLIC_CMS_URL) {
             throw new Error('NEXT_PUBLIC_CMS_URL is not defined');
         }
         this.serverURL = process.env.NEXT_PUBLIC_CMS_URL;
-
-        const requestUrl = new URL(headers().get('x-url') ?? '');
-        this.previewMode = requestUrl.searchParams.get('preview') === 'true';
+        this.previewMode = searchParams.preview === 'true';
     }
 
     async fetch(path: string) {
@@ -27,7 +25,7 @@ export class PayloadClient {
         url.searchParams.set('locale', 'undefined');
         url.searchParams.set('draft', this.previewMode ? 'true' : 'false');
         url.searchParams.set('depth', '1');
-        return fetch(url)
+        return fetch(url, { next: { tags: ['payload'] } })
             .then((res) => res.json())
             .catch((e) => {
                 console.error(e);

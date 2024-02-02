@@ -1,5 +1,5 @@
 {
-  "name": "sjdco-2024-next-app",
+  "name": "@sjdco/next",
   "version": "0.1.0",
   "private": true,
   "scripts": {

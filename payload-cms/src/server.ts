@@ -28,7 +28,7 @@ const start = async () => {
     // Cron job every 10 mins to keep the server alive
     cron.schedule('*/10 * * * *', () => {
         console.log('Hitting healthcheck from cronjob');
-        fetch('http://127.0.0.1/health');
+        fetch('/health');
     });
 
     app.listen(3000);

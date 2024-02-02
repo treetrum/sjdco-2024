@@ -10,13 +10,13 @@
     "rootDir": "./src",
     "jsx": "react",
     "paths": {
-      "payload/generated-types": ["../shared/src/payload-types.ts"]
-    }
+      "payload/generated-types": ["../shared/src/payload-types.ts"],
+    },
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "build"],
   "ts-node": {
     "transpileOnly": true,
-    "swc": true
-  }
+    "swc": true,
+  },
 }

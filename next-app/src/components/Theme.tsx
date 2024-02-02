@@ -26,7 +26,7 @@ export const ThemeController = () => {
         >
             <svg
                 id="dark-icon"
-                className="absolute h-6 w-6 fill-purple transition-transform duration-200 dark:scale-0 dark:opacity-0"
+                className="fill-purple absolute h-6 w-6 transition-transform duration-200 dark:scale-0 dark:opacity-0"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
             >
@@ -34,7 +34,7 @@ export const ThemeController = () => {
             </svg>
             <svg
                 id="light-icon"
-                className="absolute h-6 w-6 scale-0 fill-purple opacity-0 transition-transform duration-200 dark:scale-100 dark:opacity-100"
+                className="fill-purple absolute h-6 w-6 scale-0 opacity-0 transition-transform duration-200 dark:scale-100 dark:opacity-100"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
             >

@@ -1,6 +1,6 @@
 export const revalidateNextCacheInternal = async () => {
     await fetch(`${process.env.PAYLOAD_PUBLIC_SITE_URL}/api/revalidate`, {
-        method: "POST",
+        method: 'POST',
     });
 };
 

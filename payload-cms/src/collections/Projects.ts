@@ -1,9 +1,9 @@
-import { CollectionConfig } from "payload/types";
-import { revalidateNextCache } from "../hooks/revalidateNextCache";
-import { loggedIn, loggedInPreviewingOrPublished } from "../access";
+import { CollectionConfig } from 'payload/types';
+import { revalidateNextCache } from '../hooks/revalidateNextCache';
+import { loggedIn, loggedInPreviewingOrPublished } from '../access';
 
 export const Projects: CollectionConfig = {
-    slug: "projects",
+    slug: 'projects',
     access: {
         read: loggedInPreviewingOrPublished,
         create: loggedIn,
@@ -11,8 +11,8 @@ export const Projects: CollectionConfig = {
         delete: loggedIn,
     },
     admin: {
-        useAsTitle: "title",
-        defaultColumns: ["title", "createdAt", "updatedAt"],
+        useAsTitle: 'title',
+        defaultColumns: ['title', 'createdAt', 'updatedAt'],
     },
     hooks: {
         afterChange: [revalidateNextCache],
@@ -22,25 +22,25 @@ export const Projects: CollectionConfig = {
     },
     fields: [
         {
-            name: "title",
-            type: "text",
+            name: 'title',
+            type: 'text',
         },
         {
-            name: "subtitle",
-            type: "text",
+            name: 'subtitle',
+            type: 'text',
         },
         {
-            name: "description",
-            type: "richText",
+            name: 'description',
+            type: 'richText',
         },
         {
-            name: "url",
-            type: "text",
+            name: 'url',
+            type: 'text',
         },
         {
-            name: "tags",
-            type: "array",
-            fields: [{ type: "text", name: "tag" }],
+            name: 'tags',
+            type: 'array',
+            fields: [{ type: 'text', name: 'tag' }],
         },
     ],
 };

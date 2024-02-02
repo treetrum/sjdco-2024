@@ -1,9 +1,9 @@
-import { CollectionConfig } from "payload/types";
-import { revalidateNextCache } from "../hooks/revalidateNextCache";
-import { loggedIn, loggedInPreviewingOrPublished } from "../access";
+import { CollectionConfig } from 'payload/types';
+import { revalidateNextCache } from '../hooks/revalidateNextCache';
+import { loggedIn, loggedInPreviewingOrPublished } from '../access';
 
 export const Jobs: CollectionConfig = {
-    slug: "jobs",
+    slug: 'jobs',
     access: {
         read: loggedInPreviewingOrPublished,
         create: loggedIn,
@@ -11,8 +11,8 @@ export const Jobs: CollectionConfig = {
         delete: loggedIn,
     },
     admin: {
-        useAsTitle: "company",
-        defaultColumns: ["company", "createdAt", "updatedAt"],
+        useAsTitle: 'company',
+        defaultColumns: ['company', 'createdAt', 'updatedAt'],
     },
     versions: {
         drafts: true,
@@ -22,26 +22,26 @@ export const Jobs: CollectionConfig = {
     },
     fields: [
         {
-            name: "company",
-            type: "text",
+            name: 'company',
+            type: 'text',
         },
         {
-            name: "years",
-            type: "text",
+            name: 'years',
+            type: 'text',
         },
         {
-            name: "positions",
-            type: "array",
-            fields: [{ type: "text", name: "position" }],
+            name: 'positions',
+            type: 'array',
+            fields: [{ type: 'text', name: 'position' }],
         },
         {
-            name: "description",
-            type: "richText",
+            name: 'description',
+            type: 'richText',
         },
         {
-            name: "tags",
-            type: "array",
-            fields: [{ type: "text", name: "tag" }],
+            name: 'tags',
+            type: 'array',
+            fields: [{ type: 'text', name: 'tag' }],
         },
     ],
 };

@@ -27,5 +27,5 @@ a {
 }
 
 .prose a {
-    @apply font-medium text-foreground underline hover:text-purple;
+    @apply text-foreground hover:text-purple font-medium underline;
 }

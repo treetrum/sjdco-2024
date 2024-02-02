@@ -1,5 +1,5 @@
 {
-  "name": "sjdco-2024-cms",
+  "name": "sjdco-2024-payload-cms",
   "description": "A blank template to get started with Payload",
   "version": "1.0.0",
   "main": "dist/server.js",

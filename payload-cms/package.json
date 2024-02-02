@@ -1,8 +1,6 @@
 {
   "name": "@sjdco/payload",
-  "description": "A blank template to get started with Payload",
   "version": "1.0.0",
-  "main": "dist/server.js",
   "license": "MIT",
   "scripts": {
     "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts nodemon",
@@ -35,6 +33,5 @@
     "nodemon": "^3.0.3",
     "ts-node": "^10.9.2",
     "typescript": "5.3.3"
-  },
-  "author": ""
+  }
 }

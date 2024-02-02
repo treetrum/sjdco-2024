@@ -1,0 +1,20 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "generate:types": {
+      "outputs": ["../shared/payload-types.ts"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["generate:types"]
+    },
+    "build": {
+      "dependsOn": ["generate:types", "^build"],
+      "outputs": ["build/**", "dist/**", ".next/**", "!.next/cache/**"]
+    },
+    "serve": {
+      "dependsOn": ["build"]
+    }
+  }
+}

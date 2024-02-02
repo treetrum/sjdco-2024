@@ -1,7 +1,0 @@
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "pnpm install --filter \"@sjdco/next\"",
-  "buildCommand": "cd next-app && pnpm run build",
-  "outputDirectory": "next-app/.next",
-  "devCommand": "cd next-app && next"
-}

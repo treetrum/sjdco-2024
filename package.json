@@ -1,17 +1,14 @@
 {
   "private": true,
   "name": "sjdco-2024",
-  "main": "index.js",
+  "license": "MIT",
   "scripts": {
-    "dev": "concurrently --names CMS,NEXT -c auto \"npm run dev:cms\" \"npm run dev:next\"",
-    "dev:cms": "cd payload-cms && npm run dev",
-    "generate:types": "cd payload-cms && npm run generate:types",
-    "dev:next": "cd next-app && npm run dev",
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "generate:types": "turbo generate:types",
     "prettier": "npx prettier . -w"
   },
-  "dependencies": {
-    "concurrently": "^8.2.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "prettier": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.11"

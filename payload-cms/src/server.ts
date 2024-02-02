@@ -1,5 +1,6 @@
 import express from 'express';
 import payload from 'payload';
+import cron from 'node-cron';
 
 require('dotenv').config();
 const app = express();
@@ -19,7 +20,16 @@ const start = async () => {
         },
     });
 
-    // Add your own express routes here
+    // Healthcheck
+    app.get('/health', (_, res) => {
+        res.send('ok');
+    });
+
+    // Cron job every 10 mins to keep the server alive
+    cron.schedule('*/10 * * * *', () => {
+        console.log('Hitting healthcheck from cronjob');
+        fetch('http://127.0.0.1/health');
+    });
 
     app.listen(3000);
 };

@@ -1,9 +1,5 @@
 {
   "private": true,
-  "workspaces": [
-    "next-app",
-    "payload-cms"
-  ],
   "name": "sjdco-2024",
   "main": "index.js",
   "scripts": {

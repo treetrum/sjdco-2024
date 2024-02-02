@@ -1,8 +1,11 @@
 import express from 'express';
 import payload from 'payload';
 import cron from 'node-cron';
+import dotenv from 'dotenv';
 
-require('dotenv').config();
+dotenv.config();
+const port = process.env.PORT || 3000;
+
 const app = express();
 
 // Redirect root to Admin panel
@@ -28,10 +31,10 @@ const start = async () => {
     // Cron job every 10 mins to keep the server alive
     cron.schedule('*/10 * * * *', () => {
         console.log('Hitting healthcheck from cronjob');
-        fetch('/health');
+        fetch(`http://127.0.0.1:${port}/health`);
     });
 
-    app.listen(3000);
+    app.listen(port);
 };
 
 start();

@@ -11,6 +11,7 @@ export interface Config {
     users: User;
     projects: Project;
     jobs: Job;
+    media: Media;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -51,6 +52,7 @@ export interface Project {
     [k: string]: unknown;
   } | null;
   url?: string | null;
+  icon?: string | Media | null;
   tags?:
     | {
         tag?: string | null;
@@ -60,6 +62,18 @@ export interface Project {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+export interface Media {
+  id: string;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+  url?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
 }
 export interface Job {
   id: string;
@@ -142,6 +156,8 @@ export interface Home {
     };
     [k: string]: unknown;
   } | null;
+  projects?: (string | Project)[] | null;
+  jobs?: (string | Job)[] | null;
   technicalSkills?:
     | {
         category?: string | null;

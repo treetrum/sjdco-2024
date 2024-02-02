@@ -29,6 +29,20 @@ export const Home: GlobalConfig = {
             type: 'richText',
         },
         {
+            name: 'projects',
+            label: 'Featured Projects',
+            type: 'relationship',
+            relationTo: 'projects',
+            hasMany: true,
+        },
+        {
+            name: 'jobs',
+            label: 'Featured Jobs',
+            type: 'relationship',
+            relationTo: 'jobs',
+            hasMany: true,
+        },
+        {
             name: 'technicalSkills',
             type: 'array',
             fields: [

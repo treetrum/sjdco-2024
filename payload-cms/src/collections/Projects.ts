@@ -38,6 +38,11 @@ export const Projects: CollectionConfig = {
             type: 'text',
         },
         {
+            name: 'icon',
+            type: 'upload',
+            relationTo: 'media',
+        },
+        {
             name: 'tags',
             type: 'array',
             fields: [{ type: 'text', name: 'tag' }],

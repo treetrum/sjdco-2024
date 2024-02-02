@@ -8,6 +8,9 @@ import { Home } from './globals/home';
 import { Projects } from './collections/Projects';
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
 import { Jobs } from './collections/Jobs';
+import { Media } from './collections/Media';
+import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
+import { createVercelBlobAdapter } from './adapters/vercel';
 
 export default buildConfig({
     admin: {
@@ -25,7 +28,7 @@ export default buildConfig({
         },
     },
     editor: lexicalEditor({}),
-    collections: [Users, Projects, Jobs],
+    collections: [Users, Projects, Jobs, Media],
     globals: [Home],
     typescript: {
         outputFile: path.resolve(__dirname, '../../shared/payload-types.ts'),
@@ -34,7 +37,14 @@ export default buildConfig({
     graphQL: {
         schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
     },
-    plugins: [payloadCloud()],
+    plugins: [
+        payloadCloud(),
+        cloudStorage({
+            collections: {
+                [Media.slug]: { adapter: createVercelBlobAdapter() },
+            },
+        }),
+    ],
     db: mongooseAdapter({
         url: process.env.DATABASE_URI,
     }),

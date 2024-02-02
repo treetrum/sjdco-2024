@@ -7,7 +7,7 @@
     "dev": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["generate:types"]
+      "dependsOn": []
     },
     "build": {
       "dependsOn": ["generate:types", "^build"],

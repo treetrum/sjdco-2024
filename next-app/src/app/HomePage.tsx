@@ -25,6 +25,12 @@ export const HomePage = (props: Props) => {
         depth: 1,
     });
 
+    const projects =
+        home.projects?.filter((project): project is ProjectType => typeof project === 'object') ??
+        [];
+
+    const jobs = home.jobs?.filter((job): job is JobType => typeof job === 'object') ?? [];
+
     return (
         <div className="container mx-auto flex min-h-screen max-w-screen-xl flex-col items-start gap-12 px-6 py-12 sm:px-16 sm:py-16 lg:flex-row lg:gap-16 lg:py-24">
             <ThemeController />
@@ -41,25 +47,25 @@ export const HomePage = (props: Props) => {
                 <div className="prose text-foreground/50 space-y-5">
                     <LexicalRenderer content={home.intro} />
                 </div>
-                {props.projects.length > 0 && (
+                {projects.length > 0 && (
                     <div className="mt-12 lg:mt-20">
                         <h3 className="text-purple text-xl font-bold sm:text-2xl">
                             Personal Projects
                         </h3>
                         <div className="mt-4 sm:mt-8">
-                            {props.projects.map((project) => (
+                            {projects.map((project) => (
                                 <Project key={project.id} project={project} />
                             ))}
                         </div>
                     </div>
                 )}
-                {props.jobs.length > 0 && (
+                {jobs.length > 0 && (
                     <div className="mt-12 lg:mt-20">
                         <h3 className="text-purple text-xl font-bold sm:text-2xl">
                             Employment History
                         </h3>
                         <div className="mt-4 sm:mt-8">
-                            {props.jobs.map((job) => (
+                            {jobs.map((job) => (
                                 <Job key={job.id} job={job} />
                             ))}
                         </div>

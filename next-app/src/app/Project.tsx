@@ -4,6 +4,7 @@ import type { Project as ProjectType } from '../../../shared/payload-types';
 import { LexicalRenderer } from '@/utils/lexical/LexicalRenderer';
 import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 import { useLivePreview } from '@/utils/live-preview/useLivePreview';
+import Image from 'next/image';
 
 export const Project = ({ project: initialProject }: { project: ProjectType }) => {
     const { data: project } = useLivePreview<ProjectType>({
@@ -28,13 +29,19 @@ export const Project = ({ project: initialProject }: { project: ProjectType }) =
         <div className="mt-8 first:mt-0 sm:flex" key={project.title}>
             <div className="mb-4 w-[150px] flex-shrink-0 text-base sm:block md:w-[200px] md:text-lg">
                 <LinkOrSpan>
-                    {/* <Image
-                        className="rounded-xl shadow"
-                        src={p.image}
-                        width={70}
-                        height={70}
-                        alt=""
-                    /> */}
+                    {project.icon && (
+                        <Image
+                            className="rounded-xl shadow"
+                            src={
+                                typeof project.icon == 'string'
+                                    ? project.icon
+                                    : project.icon.url ?? ''
+                            }
+                            width={70}
+                            height={70}
+                            alt=""
+                        />
+                    )}
                 </LinkOrSpan>
             </div>
             <div className="flex w-auto flex-col">

@@ -84,12 +84,18 @@ importers:
       '@payloadcms/plugin-cloud':
         specifier: ^3.0.0
         version: 3.0.0(payload@2.9.0)
+      '@payloadcms/plugin-cloud-storage':
+        specifier: ^1.1.2
+        version: 1.1.2(@aws-sdk/client-s3@3.504.0)(payload@2.9.0)
       '@payloadcms/richtext-lexical':
         specifier: ^0.5.2
         version: 0.5.2(@lexical/clipboard@0.12.6)(payload@2.9.0)(typescript@5.3.3)(yjs@13.6.11)
       '@payloadcms/richtext-slate':
         specifier: ^1.4.0
         version: 1.4.0(payload@2.9.0)(react-dom@18.2.0)
+      '@vercel/blob':
+        specifier: ^0.20.0
+        version: 0.20.0
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -1527,6 +1533,11 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
+  /@fastify/busboy@2.1.0:
+    resolution: {integrity: sha512-+KpH+QxZU7O4675t3mnkQKcZZg56u+K/Ct2K+N2AZYNVK8kyeo/bI18tI8aPm3tvNNRyTWfj6s5tnGNlcbQRsA==}
+    engines: {node: '>=14'}
+    dev: false
+
   /@floating-ui/core@1.6.0:
     resolution: {integrity: sha512-PcF++MykgmTj3CIyOQbKA/hDzOAiqI3mhuoN44WRCopIs1sgoDoU4oty4Jtqaj/y3oDU6fnVSm4QG0a3t5i0+g==}
     dependencies:
@@ -2102,6 +2113,33 @@ packages:
 
   /@payloadcms/live-preview@0.2.2:
     resolution: {integrity: sha512-FOcg/HOIzzESjoT4vXgM7Pjd+bODodZTKR/pEJWsjLtyARd6NfF3MNWS+tdlfa3TOZrdT8WnHBAKsKyREyE3og==}
+    dev: false
+
+  /@payloadcms/plugin-cloud-storage@1.1.2(@aws-sdk/client-s3@3.504.0)(payload@2.9.0):
+    resolution: {integrity: sha512-wBpEWv4VdfltBqEi5ECSrKQ/TtNvmBWT4DLCrTCOhpNuD8dYD2rp+0Eoj7cF8f6wU7DpS5rvdQ/8gxlqh0Armw==}
+    peerDependencies:
+      '@aws-sdk/client-s3': ^3.142.0
+      '@aws-sdk/lib-storage': ^3.267.0
+      '@azure/abort-controller': ^1.0.0
+      '@azure/storage-blob': ^12.11.0
+      '@google-cloud/storage': ^6.4.1
+      payload: ^1.7.2 || ^2.0.0
+    peerDependenciesMeta:
+      '@aws-sdk/client-s3':
+        optional: true
+      '@aws-sdk/lib-storage':
+        optional: true
+      '@azure/abort-controller':
+        optional: true
+      '@azure/storage-blob':
+        optional: true
+      '@google-cloud/storage':
+        optional: true
+    dependencies:
+      '@aws-sdk/client-s3': 3.504.0
+      find-node-modules: 2.1.3
+      payload: 2.9.0(typescript@5.3.3)(webpack@5.90.1)
+      range-parser: 1.2.1
     dev: false
 
   /@payloadcms/plugin-cloud@3.0.0(payload@2.9.0):
@@ -3215,6 +3253,15 @@ packages:
       server-only: 0.0.1
     dev: false
 
+  /@vercel/blob@0.20.0:
+    resolution: {integrity: sha512-TpINJc01JutYvNTyF4ZXy31VWXp+gnrK5B3cPnbS0ZGSFR0WLgbEPXCDyhRuK8cmFxOS/XszGZjhBCI2XgdbKQ==}
+    engines: {node: '>=16.14'}
+    dependencies:
+      async-retry: 1.3.3
+      bytes: 3.1.2
+      undici: 5.28.2
+    dev: false
+
   /@webassemblyjs/ast@1.11.6:
     resolution: {integrity: sha512-IN1xI7PwOvLPgjcf180gC1bqn3q/QaOCwYUahIOhbYUu8KA/3tw2RT/T0Gidi1l7Hhj5D/INhJxiICObqpMu4Q==}
     dependencies:
@@ -3604,6 +3651,12 @@ packages:
   /ast-types-flow@0.0.8:
     resolution: {integrity: sha512-OH/2E5Fg20h2aPrbe+QL8JZQFko0YZaF+j4mnQ7BGhfavO7OpSLa8a0y9sBwomHdSbkhTS8TQNayBfnW5DwbvQ==}
     dev: true
+
+  /async-retry@1.3.3:
+    resolution: {integrity: sha512-wfr/jstw9xNi/0teMHrRW7dsz3Lt5ARhYNZ2ewpadnhaIp5mbALhOAP+EAdsC7t4Z6wqsDVv9+W6gm1Dk9mEyw==}
+    dependencies:
+      retry: 0.13.1
+    dev: false
 
   /asynciterator.prototype@1.0.0:
     resolution: {integrity: sha512-wwHYEIS0Q80f5mosx3L/dfG5t5rjEa9Ft51GTaNt862EnpyGHpgz2RkZvLPp1oF5TnAiTohkEKVEu8pQPJI7Vg==}
@@ -9010,6 +9063,11 @@ packages:
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
 
+  /retry@0.13.1:
+    resolution: {integrity: sha512-XQBQ3I8W1Cge0Seh+6gjj03LbmRFWuoszgK9ooCpwYIrhhoO80pfq4cUkU5DkknwfOfFteRwlZ56PYOGYyFWdg==}
+    engines: {node: '>= 4'}
+    dev: false
+
   /reusify@1.0.4:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
@@ -10159,6 +10217,13 @@ packages:
 
   /undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+
+  /undici@5.28.2:
+    resolution: {integrity: sha512-wh1pHJHnUeQV5Xa8/kyQhO7WFa8M34l026L5P/+2TYiakvGy5Rdc8jWZVyG7ieht/0WgJLEd3kcU5gKx+6GC8w==}
+    engines: {node: '>=14.0'}
+    dependencies:
+      '@fastify/busboy': 2.1.0
+    dev: false
 
   /unfetch@4.2.0:
     resolution: {integrity: sha512-F9p7yYCn6cIW9El1zi0HI6vqpeIvBsr3dSuRO6Xuppb1u5rXpCPmMvLSyECLhybr9isec8Ohl0hPekMVrEinDA==}

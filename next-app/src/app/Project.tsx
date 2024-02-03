@@ -10,7 +10,6 @@ export const Project = ({ project: initialProject }: { project: ProjectType }) =
     const { data: project } = useLivePreview<ProjectType>({
         initialData: initialProject,
         serverURL: process.env.NEXT_PUBLIC_CMS_URL!,
-        depth: 1,
     });
 
     const hasLink = project.url != null && project.url != '';

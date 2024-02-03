@@ -8,7 +8,6 @@ export const Job = ({ job: initialJob }: { job: JobType }) => {
     const { data: job } = useLivePreview<JobType>({
         initialData: initialJob,
         serverURL: process.env.NEXT_PUBLIC_CMS_URL!,
-        depth: 1,
     });
 
     return (

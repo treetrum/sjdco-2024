@@ -22,7 +22,6 @@ export const HomePage = (props: Props) => {
     const { data: home } = useLivePreview<Home>({
         initialData: props.home,
         serverURL: process.env.NEXT_PUBLIC_CMS_URL!,
-        depth: 1,
     });
 
     const projects =

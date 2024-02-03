@@ -1,6 +1,5 @@
 import express from 'express';
 import payload from 'payload';
-import cron from 'node-cron';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -25,13 +24,8 @@ const start = async () => {
 
     // Healthcheck
     app.get('/health', (_, res) => {
+        console.log('Healthcheck hit!');
         res.send('ok');
-    });
-
-    // Cron job every 10 mins to keep the server alive
-    cron.schedule('*/10 * * * *', () => {
-        console.log('Hitting healthcheck from cronjob');
-        fetch(`http://127.0.0.1:${port}/health`);
     });
 
     app.listen(port);

@@ -11,7 +11,7 @@ export const useLivePreview = <T extends { updatedAt?: string | null }>(props: {
     data: T;
     isLoading: boolean;
 } => {
-    const { depth = 0, initialData, serverURL } = props;
+    const { depth = 2, initialData, serverURL } = props;
     const [data, setData] = useState<T>(initialData);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const hasSentReadyMessage = useRef<boolean>(false);

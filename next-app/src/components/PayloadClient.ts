@@ -24,7 +24,7 @@ export class PayloadClient {
         const url = new URL(path, this.serverURL);
         url.searchParams.set('locale', 'undefined');
         url.searchParams.set('draft', this.previewMode ? 'true' : 'false');
-        url.searchParams.set('depth', '1');
+        url.searchParams.set('depth', '2');
 
         return fetch(url, {
             next: { tags: ['payload'] },

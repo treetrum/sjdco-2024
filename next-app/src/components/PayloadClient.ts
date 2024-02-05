@@ -28,7 +28,7 @@ export class PayloadClient {
 
         return fetch(url, {
             next: { tags: ['payload'] },
-            cache: this.previewMode ? 'no-cache' : 'default',
+            cache: this.previewMode ? 'no-cache' : undefined,
         })
             .then((res) => res.json())
             .catch((e) => {

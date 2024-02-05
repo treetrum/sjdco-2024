@@ -25,13 +25,12 @@ const start = async () => {
 
     // Healthcheck
     app.get('/health', (_, res) => {
-        console.log('Healthcheck hit!');
         res.send('ok');
     });
 
     // Cron job every 10 mins to keep the server alive
     cron.schedule('*/10 * * * *', () => {
-        console.log('Hitting healthcheck from cronjob');
+        console.log('Running cronjob to keep app alive');
         fetch(`https://sjdco-2024-apac.onrender.com/health`);
     });
 

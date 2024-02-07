@@ -1,0 +1,7 @@
+# Next
+next-app/.next
+
+# Paylod
+payload-cms/build
+payload-cms/dist
+shared/payload-types.ts

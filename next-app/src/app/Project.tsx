@@ -18,7 +18,12 @@ export const Project = ({ project: initialProject }: { project: ProjectType }) =
               children,
               ...restProps
           }: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>) => (
-              <a href={project.url!} target="_blank" {...restProps}>
+              <a
+                  href={project.url!}
+                  target="_blank"
+                  aria-label={`View ${project.title} in app store`}
+                  {...restProps}
+              >
                   {children}
               </a>
           )

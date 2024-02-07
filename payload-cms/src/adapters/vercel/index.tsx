@@ -1,8 +1,5 @@
 import { put, del } from '@vercel/blob';
-import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
-
-type PluginOptions = Parameters<typeof cloudStorage>[0]['collections'];
-type Adapter = PluginOptions[keyof PluginOptions]['adapter'];
+import { Adapter } from '@payloadcms/plugin-cloud-storage/dist/types';
 
 export const createVercelBlobAdapter = (): Adapter => () => {
     return {

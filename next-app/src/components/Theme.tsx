@@ -23,6 +23,7 @@ export const ThemeController = () => {
             type="button"
             className="absolute right-0 top-0 flex items-center justify-center p-10 sm:fixed"
             onClick={toggle}
+            aria-label="Toggle theme"
         >
             <svg
                 id="dark-icon"

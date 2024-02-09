@@ -2,7 +2,9 @@ import { CollectionConfig } from 'payload/types';
 
 const Users: CollectionConfig = {
     slug: 'users',
-    auth: true,
+    auth: {
+        tokenExpiration: 60 * 60 * 24 * 30,
+    },
     admin: {
         useAsTitle: 'email',
     },

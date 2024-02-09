@@ -41,7 +41,11 @@ export default buildConfig({
         payloadCloud(),
         cloudStorage({
             collections: {
-                [Media.slug]: { adapter: createVercelBlobAdapter() },
+                [Media.slug]: {
+                    adapter: createVercelBlobAdapter(),
+                    disableLocalStorage: true,
+                    disablePayloadAccessControl: true,
+                },
             },
         }),
     ],

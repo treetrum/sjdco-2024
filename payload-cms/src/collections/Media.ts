@@ -17,9 +17,6 @@ export const Media: CollectionConfig = {
     hooks: {
         afterChange: [revalidateNextCache],
     },
-    upload: {
-        staticURL: 'https://7adzvrg2a3ju2slj.public.blob.vercel-storage.com',
-        staticDir: '/',
-    },
+    upload: true,
     fields: [],
 };

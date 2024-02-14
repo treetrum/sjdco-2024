@@ -2,8 +2,8 @@ import { notFound } from 'next/navigation';
 import { HomePage } from './HomePage';
 import { PayloadClient } from '@/components/PayloadClient';
 
-export default async function Home({ searchParams }: { searchParams: Record<string, string> }) {
-    const client = new PayloadClient(searchParams);
+export default async function Home({}: {}) {
+    const client = new PayloadClient();
 
     const [homeData, projectsData, jobsData] = await Promise.all([
         client.fetchHome().catch(() => notFound()),

@@ -1,5 +1,4 @@
 import { Project, Home, Job } from '../../../shared/payload-types';
-import { headers } from 'next/headers';
 
 interface PayloadCollectionResponse<T extends Record<any, any>> {
     docs?: T[];
@@ -12,12 +11,12 @@ export class PayloadClient {
     serverURL: string;
     previewMode: boolean;
 
-    constructor(searchParams: Record<string, string>) {
+    constructor() {
         if (!process.env.NEXT_PUBLIC_CMS_URL) {
             throw new Error('NEXT_PUBLIC_CMS_URL is not defined');
         }
         this.serverURL = process.env.NEXT_PUBLIC_CMS_URL;
-        this.previewMode = searchParams.preview === 'true';
+        this.previewMode = false;
     }
 
     async fetch(path: string) {

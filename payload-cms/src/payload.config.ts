@@ -20,7 +20,7 @@ export default buildConfig({
             url: () => {
                 const base = process.env.PAYLOAD_PUBLIC_SITE_URL;
                 const url = new URL(base);
-                url.searchParams.set('preview', 'true');
+                // url.searchParams.set('preview', 'true');
                 return url.toString();
             },
             globals: [Home.slug],

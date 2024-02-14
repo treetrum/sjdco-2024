@@ -1,7 +1,7 @@
 'use client';
 
 import { SocialIcons } from '../components/SocialIcons';
-import { ThemeController } from '../components/Theme';
+import { ThemeController } from '../components/ThemeController';
 import {
     type Project as ProjectType,
     type Home,

@@ -1,32 +1,21 @@
 'use client';
 
-import { useCookies } from 'react-cookie';
+import { useTheme } from 'next-themes';
 
 export const ThemeController = () => {
-    const [cookies, setCookies] = useCookies(['theme']);
+    const { setTheme, resolvedTheme } = useTheme();
 
-    const toggle = () => {
-        const newTheme = cookies.theme === 'light' ? 'dark' : 'light';
-        setCookies('theme', newTheme, { sameSite: 'strict', secure: true });
-        if (newTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-            document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#1A0033');
-        } else {
-            document.documentElement.classList.remove('dark');
-            document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#ffffff');
-        }
+    const toggleTheme = () => {
+        setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
     };
 
     return (
         <button
-            id="theme-toggle"
-            type="button"
             className="absolute right-0 top-0 flex items-center justify-center p-10 sm:fixed"
-            onClick={toggle}
+            onClick={toggleTheme}
             aria-label="Toggle theme"
         >
             <svg
-                id="dark-icon"
                 className="fill-purple absolute h-6 w-6 transition-transform duration-200 dark:scale-0 dark:opacity-0"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +23,6 @@ export const ThemeController = () => {
                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
             </svg>
             <svg
-                id="light-icon"
                 className="fill-purple absolute h-6 w-6 scale-0 opacity-0 transition-transform duration-200 dark:scale-100 dark:opacity-100"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -46,5 +34,15 @@ export const ThemeController = () => {
                 ></path>
             </svg>
         </button>
+    );
+};
+
+export const ThemeHead = () => {
+    const { resolvedTheme } = useTheme();
+
+    return resolvedTheme === 'dark' ? (
+        <meta name="theme-color" content="#1A0033" />
+    ) : (
+        <meta name="theme-color" content="#FFFFFF" />
     );
 };

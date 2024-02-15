@@ -1,6 +1,7 @@
 import { CollectionConfig } from 'payload/types';
 import { revalidateNextCache } from '../hooks/revalidateNextCache';
 import { loggedIn, loggedInPreviewingOrPublished } from '../access';
+import { generatePreviewUrl } from '../utils';
 
 export const Projects: CollectionConfig = {
     slug: 'projects',
@@ -13,6 +14,7 @@ export const Projects: CollectionConfig = {
     admin: {
         useAsTitle: 'title',
         defaultColumns: ['title', 'createdAt', 'updatedAt'],
+        preview: () => generatePreviewUrl('/'),
     },
     hooks: {
         afterChange: [revalidateNextCache],

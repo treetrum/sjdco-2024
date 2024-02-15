@@ -1,9 +1,13 @@
 import { GlobalConfig } from 'payload/types';
 import { revalidateNextCache } from '../hooks/revalidateNextCache';
 import { loggedIn, loggedInPreviewingOrPublished } from '../access';
+import { generatePreviewUrl } from '../utils';
 
 export const Home: GlobalConfig = {
     slug: 'home',
+    admin: {
+        preview: () => generatePreviewUrl('/'),
+    },
     access: {
         read: loggedInPreviewingOrPublished,
         update: loggedIn,

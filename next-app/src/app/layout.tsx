@@ -1,9 +1,10 @@
+import { DraftModeButton } from '@/components/DraftModeButton';
+import { ThemeHead } from '@/components/ThemeController';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import { Analytics } from '@vercel/analytics/react';
 import { type Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Analytics } from '@vercel/analytics/react';
-import { ThemeProvider } from '@/components/ThemeProvider';
-import { ThemeHead } from '@/components/ThemeController';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <ThemeProvider attribute="class" defaultTheme="dark">
                     <div className="bg-gradient-radial fixed left-0 top-0 h-lvh w-screen"></div>
                     <div className="z-1 selection:bg-purple selection:text-bg-gradient-start relative text-pretty text-sm leading-relaxed sm:text-base sm:leading-relaxed ">
+                        <DraftModeButton />
                         {children}
                     </div>
                     <Analytics />

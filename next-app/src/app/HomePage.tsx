@@ -25,10 +25,16 @@ export const HomePage = (props: Props) => {
     });
 
     const projects =
-        home.projects?.filter((project): project is ProjectType => typeof project === 'object') ??
-        [];
+        home.projects
+            ?.map((project) => (typeof project === 'object' ? project.id : project))
+            .map((projectId) => props.projects.find(({ id }) => id === projectId))
+            .filter((p): p is ProjectType => Boolean(p)) ?? [];
 
-    const jobs = home.jobs?.filter((job): job is JobType => typeof job === 'object') ?? [];
+    const jobs =
+        home.jobs
+            ?.map((job) => (typeof job === 'object' ? job.id : job))
+            .map((jobId) => props.jobs.find(({ id }) => id === jobId))
+            .filter((j): j is JobType => Boolean(j)) ?? [];
 
     return (
         <div className="container mx-auto flex min-h-screen max-w-screen-xl flex-col items-start gap-12 px-6 py-12 sm:px-16 sm:py-16 lg:flex-row lg:gap-16 lg:py-24">

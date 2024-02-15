@@ -1,4 +1,5 @@
 import { Project, Home, Job } from '../../../shared/payload-types';
+import { draftMode } from 'next/headers';
 
 interface PayloadCollectionResponse<T extends Record<any, any>> {
     docs?: T[];
@@ -9,27 +10,35 @@ interface PayloadCollectionResponse<T extends Record<any, any>> {
 
 export class PayloadClient {
     serverURL: string;
-    previewMode: boolean;
 
     constructor() {
         if (!process.env.NEXT_PUBLIC_CMS_URL) {
             throw new Error('NEXT_PUBLIC_CMS_URL is not defined');
         }
         this.serverURL = process.env.NEXT_PUBLIC_CMS_URL;
-        this.previewMode = false;
     }
 
     async fetch(path: string) {
+        const isPreviewMode = draftMode().isEnabled;
         const url = new URL(path, this.serverURL);
-        url.searchParams.set('locale', 'undefined');
-        url.searchParams.set('draft', this.previewMode ? 'true' : 'false');
+        url.searchParams.set('draft', isPreviewMode ? 'true' : 'false');
         url.searchParams.set('depth', '2');
 
+        console.log('Fetching', url.toString());
+
         return fetch(url, {
-            next: { tags: ['payload'] },
-            cache: this.previewMode ? 'no-cache' : undefined,
+            cache: isPreviewMode ? 'no-cache' : undefined,
+            next: {
+                tags: ['payload'],
+                revalidate: isPreviewMode ? undefined : 1,
+            },
         })
-            .then((res) => res.json())
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error(res.statusText);
+                }
+                return res.json();
+            })
             .catch((e) => {
                 console.error(e);
                 throw e;

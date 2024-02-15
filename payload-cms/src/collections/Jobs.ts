@@ -1,6 +1,7 @@
 import { CollectionConfig } from 'payload/types';
 import { revalidateNextCache } from '../hooks/revalidateNextCache';
 import { loggedIn, loggedInPreviewingOrPublished } from '../access';
+import { generatePreviewUrl } from '../utils';
 
 export const Jobs: CollectionConfig = {
     slug: 'jobs',
@@ -13,6 +14,7 @@ export const Jobs: CollectionConfig = {
     admin: {
         useAsTitle: 'company',
         defaultColumns: ['company', 'createdAt', 'updatedAt'],
+        preview: () => generatePreviewUrl('/'),
     },
     versions: {
         drafts: true,

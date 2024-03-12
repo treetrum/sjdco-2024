@@ -24,8 +24,6 @@ export class PayloadClient {
         url.searchParams.set('draft', isPreviewMode ? 'true' : 'false');
         url.searchParams.set('depth', '2');
 
-        console.log('Fetching', url.toString());
-
         return fetch(url, {
             cache: isPreviewMode ? 'no-cache' : undefined,
             next: {

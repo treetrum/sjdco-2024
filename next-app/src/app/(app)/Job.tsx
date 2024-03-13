@@ -1,6 +1,6 @@
 'use client';
 
-import { Job as JobType } from '../../../shared/payload-types';
+import { Job as JobType } from '../../../../shared/payload-types';
 import { LexicalRenderer } from '@/utils/lexical/LexicalRenderer';
 import { useLivePreview } from '@/utils/live-preview/useLivePreview';
 

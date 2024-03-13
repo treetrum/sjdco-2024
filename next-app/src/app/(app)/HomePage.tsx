@@ -1,12 +1,12 @@
 'use client';
 
-import { SocialIcons } from '../components/SocialIcons';
-import { ThemeController } from '../components/ThemeController';
+import { SocialIcons } from '../../components/SocialIcons';
+import { ThemeController } from '../../components/ThemeController';
 import {
     type Project as ProjectType,
     type Home,
     Job as JobType,
-} from '../../../shared/payload-types';
+} from '../../../../shared/payload-types';
 import { LexicalRenderer } from '@/utils/lexical/LexicalRenderer';
 import { useLivePreview } from '@/utils/live-preview/useLivePreview';
 import { Project } from './Project';

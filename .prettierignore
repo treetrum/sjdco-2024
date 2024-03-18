@@ -1,12 +1,4 @@
-# Top level
 pnpm-lock.yaml
-
-# Next
-next-app/.next
-next-app/src/app/(payload)
-next-app/payload-types.ts
-
-# Paylod
-payload-cms/build
-payload-cms/dist
-shared/payload-types.ts
+.next
+src/app/(payload)
+payload-types.ts

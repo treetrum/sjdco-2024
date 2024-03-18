@@ -40,7 +40,7 @@ export const HomePage = (props: Props) => {
         <div className="container mx-auto flex min-h-screen max-w-screen-xl flex-col items-start gap-12 px-6 py-12 sm:px-16 sm:py-16 lg:flex-row lg:gap-16 lg:py-24">
             <ThemeController />
             <aside className="top-24 flex w-full flex-col gap-3 lg:sticky lg:max-w-[300px] xl:max-w-[390px]">
-                <h1 className="text-purple text-4xl font-bold sm:text-5xl">{home.title}</h1>
+                <h1 className="text-4xl font-bold text-purple sm:text-5xl">{home.title}</h1>
                 <h5 className="text-lg sm:text-xl">{home.subtitle}</h5>
                 <p
                     className="text-foreground/50"
@@ -49,12 +49,12 @@ export const HomePage = (props: Props) => {
                 <SocialIcons />
             </aside>
             <main className="w-full">
-                <div className="prose text-foreground/50 space-y-5">
+                <div className="prose space-y-5 text-foreground/50">
                     <LexicalRenderer content={home.intro} />
                 </div>
                 {projects.length > 0 && (
                     <div className="mt-12 lg:mt-20">
-                        <h3 className="text-purple text-xl font-bold sm:text-2xl">
+                        <h3 className="text-xl font-bold text-purple sm:text-2xl">
                             Personal Projects
                         </h3>
                         <div className="mt-4 sm:mt-8">
@@ -66,7 +66,7 @@ export const HomePage = (props: Props) => {
                 )}
                 {jobs.length > 0 && (
                     <div className="mt-12 lg:mt-20">
-                        <h3 className="text-purple text-xl font-bold sm:text-2xl">
+                        <h3 className="text-xl font-bold text-purple sm:text-2xl">
                             Employment History
                         </h3>
                         <div className="mt-4 sm:mt-8">
@@ -78,7 +78,7 @@ export const HomePage = (props: Props) => {
                 )}
                 {home.technicalSkills && (
                     <div className="mt-12 lg:mt-20">
-                        <h3 className="text-purple text-xl font-bold sm:text-2xl">
+                        <h3 className="text-xl font-bold text-purple sm:text-2xl">
                             Technical skills
                         </h3>
                         <div className="pt-4 sm:pt-4">
@@ -92,7 +92,7 @@ export const HomePage = (props: Props) => {
                                             <span>{skill.category}</span>
                                         </h4>
                                     </div>
-                                    <div className="text-foreground/50 mt-1 text-sm leading-relaxed">
+                                    <div className="mt-1 text-sm leading-relaxed text-foreground/50">
                                         {skill.content}
                                     </div>
                                 </div>

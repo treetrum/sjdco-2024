@@ -4,18 +4,19 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3001",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "payload": "payload"
+    "payload": "payload",
+    "format": "prettier -w ."
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "3.0.0-alpha.48",
     "@payloadcms/db-postgres": "3.0.0-alpha.48",
     "@payloadcms/live-preview": "^0.2.2",
     "@payloadcms/next": "3.0.0-alpha.48",
-    "@payloadcms/plugin-cloud-storage": "^3.0.0-alpha.48",
+    "@payloadcms/plugin-cloud-storage": "3.0.0-alpha.48",
     "@payloadcms/richtext-lexical": "3.0.0-alpha.48",
     "@payloadcms/richtext-slate": "3.0.0-alpha.48",
     "@vercel/analytics": "^1.1.2",

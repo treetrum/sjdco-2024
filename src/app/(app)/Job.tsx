@@ -19,7 +19,7 @@ export const Job = ({ job: initialJob }: { job: JobType }) => {
                 <div className="flex-shrink-0 ">
                     <h4 className="mb-1 text-base md:text-lg">
                         <span>{job.company}</span>{' '}
-                        <span className="text-foreground/50 text-right sm:hidden">
+                        <span className="text-right text-foreground/50 sm:hidden">
                             ({job.years})
                         </span>
                     </h4>
@@ -37,14 +37,14 @@ export const Job = ({ job: initialJob }: { job: JobType }) => {
                     ))}
                 </div>
                 {job.description && (
-                    <div className="text-foreground/50 mt-2 text-sm leading-relaxed">
+                    <div className="mt-2 text-sm leading-relaxed text-foreground/50">
                         <LexicalRenderer content={job.description} />
                     </div>
                 )}
                 <div className="mt-4 inline-flex flex-wrap gap-2">
                     {(job.tags ?? []).map(({ tag }) => (
                         <span
-                            className="border-purple bg-purple text-purple rounded-md border-[1px] border-opacity-15 bg-opacity-10 px-1.5 py-1 text-xs"
+                            className="rounded-md border-[1px] border-purple border-opacity-15 bg-purple bg-opacity-10 px-1.5 py-1 text-xs text-purple"
                             key={tag}
                         >
                             {tag}

@@ -51,7 +51,7 @@ export const Project = ({ project: initialProject }: { project: ProjectType }) =
             <div className="flex w-auto flex-col">
                 <div className="flex-shrink-0 ">
                     <h4 className="md:text-l mb-1 text-base ">
-                        <LinkOrSpan className="hover:text-purple group flex items-center gap-2 no-underline">
+                        <LinkOrSpan className="group flex items-center gap-2 no-underline hover:text-purple">
                             <span>{project.title}</span>
                             {hasLink && (
                                 <svg
@@ -69,17 +69,17 @@ export const Project = ({ project: initialProject }: { project: ProjectType }) =
                     </h4>
                 </div>
                 <div className="mt-1">
-                    <p className="text-foreground/70 mt-2 text-xs font-semibold uppercase first:mt-0 md:font-semibold">
+                    <p className="mt-2 text-xs font-semibold uppercase text-foreground/70 first:mt-0 md:font-semibold">
                         {project.subtitle}
                     </p>
                 </div>
-                <div className="text-foreground/50 mt-2 text-sm leading-relaxed">
+                <div className="mt-2 text-sm leading-relaxed text-foreground/50">
                     <LexicalRenderer content={project.description} />
                 </div>
                 <div className="mt-4 inline-flex flex-wrap gap-2">
                     {(project.tags ?? []).map(({ tag }) => (
                         <span
-                            className="border-purple bg-purple text-purple rounded-md border-[1px] border-opacity-15 bg-opacity-10 px-1.5 py-1 text-xs"
+                            className="rounded-md border-[1px] border-purple border-opacity-15 bg-purple bg-opacity-10 px-1.5 py-1 text-xs text-purple"
                             key={tag}
                         >
                             {tag}

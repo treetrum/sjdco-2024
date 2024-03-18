@@ -16,14 +16,14 @@ export const ThemeController = () => {
             aria-label="Toggle theme"
         >
             <svg
-                className="fill-purple absolute h-6 w-6 transition-transform duration-200 dark:scale-0 dark:opacity-0"
+                className="absolute h-6 w-6 fill-purple transition-transform duration-200 dark:scale-0 dark:opacity-0"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
             </svg>
             <svg
-                className="fill-purple absolute h-6 w-6 scale-0 opacity-0 transition-transform duration-200 dark:scale-100 dark:opacity-100"
+                className="absolute h-6 w-6 scale-0 fill-purple opacity-0 transition-transform duration-200 dark:scale-100 dark:opacity-100"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
             >

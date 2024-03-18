@@ -1,5 +1,5 @@
 import { put, del, head } from '@vercel/blob';
-import { Adapter } from '@payloadcms/plugin-cloud-storage/dist/types';
+import { Adapter, GeneratedAdapter } from '@payloadcms/plugin-cloud-storage/dist/types';
 import path from 'path';
 
 const generateUrl = (fileKey: string) => {
@@ -17,7 +17,7 @@ const generateFileKey = (filename: string, prefix?: string) => {
 
 export const createVercelBlobAdapter =
     (): Adapter =>
-    ({ prefix }) => {
+    ({ prefix }): GeneratedAdapter => {
         return {
             generateURL: async ({ filename }) => {
                 const fileKey = generateFileKey(filename, prefix);
@@ -42,18 +42,21 @@ export const createVercelBlobAdapter =
                     addRandomSuffix: false,
                 });
             },
-            staticHandler: async (req, res, next) => {
-                const fileKey = generateFileKey(req.params.filename, prefix);
+            staticHandler: async (req, { params }) => {
+                // TODO: this doesn't work at the moment. To avoid, ensure you
+                // pass 'disablePayloadAccessControl: true' to the plugins
+                // config for now.
+                const fileKey = generateFileKey(params.filename, prefix);
                 console.log('staticHandler called for fileKey', fileKey);
                 try {
                     const file = await head(generateUrl(fileKey));
                     if (file) {
-                        return res.redirect(file.url);
+                        return Response.redirect(file.url);
                     }
                 } catch (error) {
                     console.error('Error getting file', fileKey, error);
                 } finally {
-                    return next();
+                    return new Response(undefined, { status: 404 });
                 }
             },
         };

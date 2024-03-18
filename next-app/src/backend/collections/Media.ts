@@ -10,7 +10,9 @@ export const Media: CollectionConfig = {
         update: loggedIn,
         delete: loggedIn,
     },
-    admin: {},
+    admin: {
+        defaultColumns: ['file'],
+    },
     versions: {
         drafts: true,
     },

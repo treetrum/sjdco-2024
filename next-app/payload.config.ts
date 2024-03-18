@@ -8,9 +8,8 @@ import { Projects } from '@/backend/collections/Projects';
 import { Jobs } from '@/backend/collections/Jobs';
 import { Media } from '@/backend/collections/Media';
 import { fileURLToPath } from 'url';
-
-// import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
-// import { createVercelBlobAdapter } from '@/backend/adapters/vercel';
+import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
+import { createVercelBlobAdapter } from '@/backend/adapters/vercel';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -33,15 +32,15 @@ export default buildConfig({
         outputFile: path.resolve(dirname, 'payload-types.ts'),
     },
     plugins: [
-        // cloudStorage({
-        //     collections: {
-        //         [Media.slug]: {
-        //             adapter: createVercelBlobAdapter(),
-        //             disableLocalStorage: true,
-        //             disablePayloadAccessControl: true,
-        //         },
-        //     },
-        // }),
+        cloudStorage({
+            collections: {
+                [Media.slug]: {
+                    adapter: createVercelBlobAdapter(),
+                    disableLocalStorage: true,
+                    disablePayloadAccessControl: true,
+                },
+            },
+        }),
     ],
     db: mongooseAdapter({
         url: process.env.DATABASE_URI || '',

@@ -1,4 +1,4 @@
-import { Project, Home, Job } from '../../../shared/payload-types';
+import { Project, Home, Job } from 'payload-types';
 import { draftMode } from 'next/headers';
 
 interface PayloadCollectionResponse<T extends Record<any, any>> {

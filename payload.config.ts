@@ -29,7 +29,7 @@ export default buildConfig({
     collections: [Users, Projects, Jobs, Media],
     globals: [Home],
     typescript: {
-        outputFile: path.resolve(dirname, 'payload-types.ts'),
+        outputFile: path.resolve(dirname, 'src/types/payload-types.ts'),
     },
     plugins: [
         cloudStorage({

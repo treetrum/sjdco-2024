@@ -1,6 +1,6 @@
 'use client';
 
-import type { Project as ProjectType } from 'payload-types';
+import type { Project as ProjectType } from '@/types/payload-types';
 import { LexicalRenderer } from '@/utils/lexical/LexicalRenderer';
 import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 import { useLivePreview } from '@/utils/live-preview/useLivePreview';

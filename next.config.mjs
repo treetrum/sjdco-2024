@@ -5,7 +5,6 @@ const nextConfig = {
     experimental: {
         reactCompiler: false,
     },
-    pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
     images: {
         remotePatterns: [
             {

@@ -1,23 +1,6 @@
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
 import { cloudStoragePlugin } from '@payloadcms/plugin-cloud-storage';
-import {
-    AlignFeature,
-    BlockquoteFeature,
-    BlocksFeature,
-    BoldFeature,
-    ChecklistFeature,
-    HeadingFeature,
-    IndentFeature,
-    InlineCodeFeature,
-    ItalicFeature,
-    LinkFeature,
-    OrderedListFeature,
-    ParagraphFeature,
-    RelationshipFeature,
-    UnorderedListFeature,
-    UploadFeature,
-    lexicalEditor,
-} from '@payloadcms/richtext-lexical';
+import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import path from 'path';
 import { buildConfig } from 'payload';
 import { fileURLToPath } from 'url';

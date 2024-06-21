@@ -9,7 +9,6 @@ export default async function Home() {
     ]);
 
     return (
-        // @ts-expect-error TODO: type generation isn't working at the moment
         <HomePage home={homeData} projects={projectsData.docs ?? []} jobs={jobsData.docs ?? []} />
     );
 }

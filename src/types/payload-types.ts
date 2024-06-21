@@ -18,6 +18,10 @@ export interface Config {
   globals: {
     home: Home;
   };
+  locale: null;
+  user: User & {
+    collection: 'users';
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -81,11 +85,14 @@ export interface Media {
   createdAt: string;
   _status?: ('draft' | 'published') | null;
   url?: string | null;
+  thumbnailURL?: string | null;
   filename?: string | null;
   mimeType?: string | null;
   filesize?: number | null;
   width?: number | null;
   height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -200,6 +207,5 @@ export interface Home {
 
 
 declare module 'payload' {
-  // @ts-expect-error TODO: Type generation is broken at the moment
   export interface GeneratedTypes extends Config {}
 }

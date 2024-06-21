@@ -1,8 +1,8 @@
-import { GlobalConfig } from 'payload/types';
-import { loggedIn, loggedInPreviewingOrPublished } from '../access';
-import { generatePreviewUrl } from '../utils';
 import { revalidateTag } from 'next/cache';
+import { GlobalConfig } from 'payload';
+import { loggedIn, loggedInPreviewingOrPublished } from '../access';
 import { revalidatePayload } from '../hooks/revalidatePayload';
+import { generatePreviewUrl } from '../utils';
 
 export const Home: GlobalConfig = {
     slug: 'home',

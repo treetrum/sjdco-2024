@@ -1,10 +1,10 @@
 'use client';
 
+import Image from 'next/image';
+import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 import type { Project as ProjectType } from '@/types/payload-types';
 import { LexicalRenderer } from '@/utils/lexical/LexicalRenderer';
-import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 import { useLivePreview } from '@/utils/live-preview/useLivePreview';
-import Image from 'next/image';
 
 export const Project = ({ project: initialProject }: { project: ProjectType }) => {
     const { data: project } = useLivePreview<ProjectType>({

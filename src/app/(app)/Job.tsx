@@ -1,8 +1,8 @@
 'use client';
 
+import { Job as JobType } from '@/types/payload-types';
 import { LexicalRenderer } from '@/utils/lexical/LexicalRenderer';
 import { useLivePreview } from '@/utils/live-preview/useLivePreview';
-import { Job as JobType } from '@/types/payload-types';
 
 export const Job = ({ job: initialJob }: { job: JobType }) => {
     const { data: job } = useLivePreview<JobType>({

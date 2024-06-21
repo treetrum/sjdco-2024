@@ -1,4 +1,4 @@
-import { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from 'payload';
 import { loggedIn, loggedInPreviewingOrPublished } from '../access';
 import { revalidatePayload } from '../hooks/revalidatePayload';
 

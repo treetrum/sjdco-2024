@@ -1,5 +1,5 @@
-import { put, del, head } from '@vercel/blob';
-import { Adapter, GeneratedAdapter } from '@payloadcms/plugin-cloud-storage/dist/types';
+import { Adapter, GeneratedAdapter } from '@payloadcms/plugin-cloud-storage/types';
+import { del, head, put } from '@vercel/blob';
 import path from 'path';
 
 const generateUrl = (fileKey: string) => {
@@ -19,6 +19,7 @@ export const createVercelBlobAdapter =
     (): Adapter =>
     ({ prefix }): GeneratedAdapter => {
         return {
+            name: 'Vercel blob adapter',
             generateURL: async ({ filename }) => {
                 const fileKey = generateFileKey(filename, prefix);
                 console.log('generateURL called for fileKey', fileKey);

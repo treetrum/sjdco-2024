@@ -1,6 +1,6 @@
+import config from '@payload-config';
 import { unstable_cache } from 'next/cache';
 import { getPayload } from 'payload';
-import config from '@payload-config';
 
 // TODO: This is causing issues when used. Probably best to avoid for now.
 export const getPayloadCached = unstable_cache(

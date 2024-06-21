@@ -1,15 +1,32 @@
-import path from 'path';
-import { lexicalEditor } from '@payloadcms/richtext-lexical';
-import { buildConfig } from 'payload/config';
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
-import Users from '@/backend/collections/Users';
-import { Home } from '@/backend/globals/home';
-import { Projects } from '@/backend/collections/Projects';
+import { cloudStoragePlugin } from '@payloadcms/plugin-cloud-storage';
+import {
+    AlignFeature,
+    BlockquoteFeature,
+    BlocksFeature,
+    BoldFeature,
+    ChecklistFeature,
+    HeadingFeature,
+    IndentFeature,
+    InlineCodeFeature,
+    ItalicFeature,
+    LinkFeature,
+    OrderedListFeature,
+    ParagraphFeature,
+    RelationshipFeature,
+    UnorderedListFeature,
+    UploadFeature,
+    lexicalEditor,
+} from '@payloadcms/richtext-lexical';
+import path from 'path';
+import { buildConfig } from 'payload';
+import { fileURLToPath } from 'url';
+import { createVercelBlobAdapter } from '@/backend/adapters/vercel';
 import { Jobs } from '@/backend/collections/Jobs';
 import { Media } from '@/backend/collections/Media';
-import { fileURLToPath } from 'url';
-import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
-import { createVercelBlobAdapter } from '@/backend/adapters/vercel';
+import { Projects } from '@/backend/collections/Projects';
+import Users from '@/backend/collections/Users';
+import { Home } from '@/backend/globals/home';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -25,14 +42,14 @@ export default buildConfig({
         //     collections: [Projects.slug, Jobs.slug],
         // },
     },
-    editor: lexicalEditor({}),
+    editor: lexicalEditor(),
     collections: [Users, Projects, Jobs, Media],
     globals: [Home],
     typescript: {
         outputFile: path.resolve(dirname, 'src/types/payload-types.ts'),
     },
     plugins: [
-        cloudStorage({
+        cloudStoragePlugin({
             collections: {
                 [Media.slug]: {
                     adapter: createVercelBlobAdapter(),

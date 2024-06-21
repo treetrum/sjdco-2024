@@ -200,5 +200,6 @@ export interface Home {
 
 
 declare module 'payload' {
+  // @ts-expect-error TODO: Type generation is broken at the moment
   export interface GeneratedTypes extends Config {}
 }

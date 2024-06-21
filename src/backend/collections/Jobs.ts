@@ -1,7 +1,7 @@
-import { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from 'payload';
 import { loggedIn, loggedInPreviewingOrPublished } from '../access';
-import { generatePreviewUrl } from '../utils';
 import { revalidatePayload } from '../hooks/revalidatePayload';
+import { generatePreviewUrl } from '../utils';
 
 export const Jobs: CollectionConfig = {
     slug: 'jobs',

@@ -1,9 +1,7 @@
 // Copy and pasted from here: (types removed to not require a whole bunch of extra dependencies)
 // https://github.com/payloadcms/public-demo/blob/master/src/payload/utilities/lexical/lexicalToReact/index.tsx
-
 import escapeHTML from 'escape-html';
 import React, { Fragment } from 'react';
-
 import {
     IS_BOLD,
     IS_CODE,

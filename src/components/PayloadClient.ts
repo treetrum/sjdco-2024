@@ -1,5 +1,5 @@
-import { Project, Home, Job } from '@/types/payload-types';
 import { draftMode } from 'next/headers';
+import { Home, Job, Project } from '@/types/payload-types';
 
 interface PayloadCollectionResponse<T extends Record<any, any>> {
     docs?: T[];

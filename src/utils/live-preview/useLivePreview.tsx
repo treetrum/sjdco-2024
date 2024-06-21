@@ -1,7 +1,7 @@
 'use client';
 
+import { ready, subscribe, unsubscribe } from '@payloadcms/live-preview';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { subscribe, ready, unsubscribe } from '@payloadcms/live-preview';
 
 export const useLivePreview = <T extends { updatedAt?: string | null }>(props: {
     depth?: number;

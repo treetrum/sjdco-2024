@@ -1,10 +1,10 @@
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
-import { cloudStoragePlugin } from '@payloadcms/plugin-cloud-storage';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob';
 import path from 'path';
 import { buildConfig } from 'payload';
 import { fileURLToPath } from 'url';
-import { createVercelBlobAdapter } from '@/backend/adapters/vercel';
+import { z } from 'zod';
 import { Jobs } from '@/backend/collections/Jobs';
 import { Media } from '@/backend/collections/Media';
 import { Projects } from '@/backend/collections/Projects';
@@ -32,14 +32,9 @@ export default buildConfig({
         outputFile: path.resolve(dirname, 'src/types/payload-types.ts'),
     },
     plugins: [
-        cloudStoragePlugin({
-            collections: {
-                [Media.slug]: {
-                    adapter: createVercelBlobAdapter(),
-                    disableLocalStorage: true,
-                    disablePayloadAccessControl: true,
-                },
-            },
+        vercelBlobStorage({
+            collections: { media: true },
+            token: z.string().parse(process.env.BLOB_READ_WRITE_TOKEN),
         }),
     ],
     db: mongooseAdapter({

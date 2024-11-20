@@ -16,6 +16,6 @@ export async function GET(request: NextRequest) {
         return new Response('Unauthorized', { status: 401 });
     }
 
-    draftMode().enable();
+    (await draftMode()).enable();
     return redirect(params.path);
 }

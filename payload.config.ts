@@ -38,6 +38,6 @@ export default buildConfig({
         }),
     ],
     db: mongooseAdapter({
-        url: process.env.DATABASE_URI || '',
+        url: z.string().parse(process.env.DATABASE_URI),
     }),
 });

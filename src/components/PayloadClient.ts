@@ -19,7 +19,8 @@ export class PayloadClient {
     }
 
     async fetch(path: string) {
-        const isPreviewMode = draftMode().isEnabled;
+        const draft = await draftMode();
+        const isPreviewMode = draft.isEnabled;
         const url = new URL(path, this.serverURL);
         url.searchParams.set('draft', isPreviewMode ? 'true' : 'false');
         url.searchParams.set('depth', '2');

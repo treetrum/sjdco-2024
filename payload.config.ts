@@ -28,7 +28,10 @@ export default buildConfig({
     admin: {
         user: Users.slug,
         livePreview: {
-            url: () => `http://${process.env.NEXT_PUBLIC_VERCEL_URL}?preview=true`,
+            url: () => {
+                const protocol = process.env.NODE_ENV === 'production' ? 'https:' : 'http:';
+                return `${protocol}//${process.env.NEXT_PUBLIC_VERCEL_URL}?preview=true`;
+            },
             globals: [Home.slug],
             collections: [Projects.slug, Jobs.slug],
         },

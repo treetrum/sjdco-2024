@@ -1,7 +1,4 @@
-# Next
-next-app/.next
-
-# Paylod
-payload-cms/build
-payload-cms/dist
-shared/payload-types.ts
+pnpm-lock.yaml
+.next
+src/app/(payload)
+payload-types.ts

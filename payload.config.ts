@@ -20,6 +20,7 @@ const env = z
         BLOB_READ_WRITE_TOKEN: z.string(),
         DATABASE_URI: z.string(),
         RESEND_API_KEY: z.string(),
+        NEXT_PUBLIC_VERCEL_URL: z.string(),
     })
     .parse(process.env);
 
@@ -28,7 +29,7 @@ export default buildConfig({
     admin: {
         user: Users.slug,
         livePreview: {
-            url: () => '/',
+            url: () => `http://${env.NEXT_PUBLIC_VERCEL_URL}?preview=true`,
             globals: [Home.slug],
             collections: [Projects.slug, Jobs.slug],
         },

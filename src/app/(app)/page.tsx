@@ -3,13 +3,13 @@ import { headers } from 'next/headers';
 import { getPayload } from 'payload';
 import { HomePage } from './HomePage';
 
-export default async function Home() {
+export default async function Home({ searchParams }: { searchParams: Record<string, unknown> }) {
     const payload = await getPayload({ config });
     const auth = await payload.auth({ headers: await headers() });
 
     const homeData = await payload.findGlobal({
         slug: 'home',
-        draft: !!auth.user, // only logged in users should get draft access
+        draft: !!(auth.user && searchParams.preview),
     });
     const projects = homeData.projects?.filter((p) => typeof p !== 'string') ?? [];
     const jobs = homeData.jobs?.filter((j) => typeof j !== 'string') ?? [];

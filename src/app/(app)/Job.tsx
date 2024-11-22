@@ -1,15 +1,7 @@
-'use client';
-
 import { Job as JobType } from '@/types/payload-types';
 import { LexicalRenderer } from '@/utils/lexical/LexicalRenderer';
-import { useLivePreview } from '@/utils/live-preview/useLivePreview';
 
-export const Job = ({ job: initialJob }: { job: JobType }) => {
-    const { data: job } = useLivePreview<JobType>({
-        initialData: initialJob,
-        serverURL: process.env.NEXT_PUBLIC_CMS_URL!,
-    });
-
+export const Job = ({ job }: { job: JobType }) => {
     return (
         <div className="mt-8 first:mt-0 sm:flex" key={job.company}>
             <div className="mb-0 hidden w-[150px] flex-shrink-0 text-base sm:block md:w-[200px] md:text-lg ">

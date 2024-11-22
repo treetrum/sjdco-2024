@@ -1,6 +1,6 @@
 import { revalidateTag } from 'next/cache';
 import { GlobalConfig } from 'payload';
-import { loggedIn, loggedInPreviewingOrPublished } from '../access';
+import { loggedIn, loggedInOrPublished } from '../access';
 import { revalidatePayload } from '../hooks/revalidatePayload';
 import { generatePreviewUrl } from '../utils';
 
@@ -10,11 +10,11 @@ export const Home: GlobalConfig = {
         preview: () => generatePreviewUrl('/'),
     },
     access: {
-        read: loggedInPreviewingOrPublished,
+        read: loggedInOrPublished,
         update: loggedIn,
     },
     versions: {
-        drafts: true,
+        drafts: { autosave: { interval: 500 } },
     },
     fields: [
         {

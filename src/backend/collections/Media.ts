@@ -1,20 +1,18 @@
 import { CollectionConfig } from 'payload';
-import { loggedIn, loggedInPreviewingOrPublished } from '../access';
+import { loggedIn, loggedInOrPublished } from '../access';
 import { revalidatePayload } from '../hooks/revalidatePayload';
 
 export const Media: CollectionConfig = {
     slug: 'media',
     access: {
-        read: loggedInPreviewingOrPublished,
+        read: loggedInOrPublished,
         create: loggedIn,
         update: loggedIn,
         delete: loggedIn,
     },
-    admin: {
-        defaultColumns: ['file'],
-    },
+    admin: {},
     versions: {
-        drafts: true,
+        drafts: { autosave: { interval: 500 } },
     },
     hooks: { afterChange: [revalidatePayload] },
     upload: true,

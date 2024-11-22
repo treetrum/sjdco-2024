@@ -4,7 +4,7 @@ export const loggedIn: Access = ({ req: { user } }) => {
     return user != undefined;
 };
 
-export const loggedInPreviewingOrPublished: Access = ({ req: { user, query } }) => {
+export const loggedInOrPublished: Access = ({ req: { user, query } }) => {
     if (user) {
         return true;
     }

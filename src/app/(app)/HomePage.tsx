@@ -1,12 +1,10 @@
-'use client';
-
 import { Home, Job as JobType, Project as ProjectType } from '@/types/payload-types';
 import { LexicalRenderer } from '@/utils/lexical/LexicalRenderer';
-import { useLivePreview } from '@/utils/live-preview/useLivePreview';
 import { SocialIcons } from '../../components/SocialIcons';
 import { ThemeController } from '../../components/ThemeController';
 import { Job } from './Job';
 import { Project } from './Project';
+import { RefreshRouteOnSave } from './RefreshOnRouteSave';
 
 interface Props {
     home: Home;
@@ -14,26 +12,10 @@ interface Props {
     jobs: JobType[];
 }
 
-export const HomePage = (props: Props) => {
-    const { data: home } = useLivePreview<Home>({
-        initialData: props.home,
-        serverURL: process.env.NEXT_PUBLIC_CMS_URL!,
-    });
-
-    const projects =
-        home.projects
-            ?.map((project) => (typeof project === 'object' ? project.id : project))
-            .map((projectId) => props.projects.find(({ id }) => id === projectId))
-            .filter((p): p is ProjectType => Boolean(p)) ?? [];
-
-    const jobs =
-        home.jobs
-            ?.map((job) => (typeof job === 'object' ? job.id : job))
-            .map((jobId) => props.jobs.find(({ id }) => id === jobId))
-            .filter((j): j is JobType => Boolean(j)) ?? [];
-
+export const HomePage = ({ home, projects, jobs }: Props) => {
     return (
         <div className="container mx-auto flex min-h-screen max-w-screen-xl flex-col items-start gap-12 px-6 py-12 sm:px-16 sm:py-16 lg:flex-row lg:gap-16 lg:py-24">
+            <RefreshRouteOnSave />
             <ThemeController />
             <aside className="top-24 flex w-full flex-col gap-3 lg:sticky lg:max-w-[300px] xl:max-w-[390px]">
                 <h1 className="text-4xl font-bold text-purple sm:text-5xl">{home.title}</h1>

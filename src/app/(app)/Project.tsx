@@ -1,17 +1,9 @@
-'use client';
-
 import Image from 'next/image';
 import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 import type { Project as ProjectType } from '@/types/payload-types';
 import { LexicalRenderer } from '@/utils/lexical/LexicalRenderer';
-import { useLivePreview } from '@/utils/live-preview/useLivePreview';
 
-export const Project = ({ project: initialProject }: { project: ProjectType }) => {
-    const { data: project } = useLivePreview<ProjectType>({
-        initialData: initialProject,
-        serverURL: process.env.NEXT_PUBLIC_CMS_URL!,
-    });
-
+export const Project = ({ project }: { project: ProjectType }) => {
     const hasLink = project.url != null && project.url != '';
     const LinkOrSpan = hasLink
         ? ({

@@ -1,12 +1,12 @@
 import { CollectionConfig } from 'payload';
-import { loggedIn, loggedInPreviewingOrPublished } from '../access';
+import { loggedIn, loggedInOrPublished } from '../access';
 import { revalidatePayload } from '../hooks/revalidatePayload';
 import { generatePreviewUrl } from '../utils';
 
 export const Jobs: CollectionConfig = {
     slug: 'jobs',
     access: {
-        read: loggedInPreviewingOrPublished,
+        read: loggedInOrPublished,
         create: loggedIn,
         update: loggedIn,
         delete: loggedIn,
@@ -17,7 +17,7 @@ export const Jobs: CollectionConfig = {
         preview: () => generatePreviewUrl('/'),
     },
     versions: {
-        drafts: true,
+        drafts: { autosave: { interval: 500 } },
     },
     hooks: { afterChange: [revalidatePayload] },
     fields: [

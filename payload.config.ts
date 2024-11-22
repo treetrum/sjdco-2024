@@ -1,4 +1,5 @@
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
+import { resendAdapter } from '@payloadcms/email-resend';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob';
 import path from 'path';
@@ -18,12 +19,11 @@ export default buildConfig({
     secret: process.env.PAYLOAD_SECRET || '',
     admin: {
         user: Users.slug,
-        // TODO: Fix this
-        // livePreview: {
-        //     url: () => '/',
-        //     globals: [Home.slug],
-        //     collections: [Projects.slug, Jobs.slug],
-        // },
+        livePreview: {
+            url: () => '/',
+            globals: [Home.slug],
+            collections: [Projects.slug, Jobs.slug],
+        },
     },
     editor: lexicalEditor(),
     collections: [Users, Projects, Jobs, Media],
@@ -39,5 +39,10 @@ export default buildConfig({
     ],
     db: mongooseAdapter({
         url: z.string().parse(process.env.DATABASE_URI),
+    }),
+    email: resendAdapter({
+        apiKey: z.string().parse(process.env.RESEND_API_KEY),
+        defaultFromAddress: 'hello@sjd.co',
+        defaultFromName: 'SJDco Website',
     }),
 });

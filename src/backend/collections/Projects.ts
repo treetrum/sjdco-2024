@@ -1,12 +1,12 @@
 import { CollectionConfig } from 'payload';
-import { loggedIn, loggedInPreviewingOrPublished } from '../access';
+import { loggedIn, loggedInOrPublished } from '../access';
 import { revalidatePayload } from '../hooks/revalidatePayload';
 import { generatePreviewUrl } from '../utils';
 
 export const Projects: CollectionConfig = {
     slug: 'projects',
     access: {
-        read: loggedInPreviewingOrPublished,
+        read: loggedInOrPublished,
         create: loggedIn,
         update: loggedIn,
         delete: loggedIn,
@@ -18,7 +18,7 @@ export const Projects: CollectionConfig = {
     },
     hooks: { afterChange: [revalidatePayload] },
     versions: {
-        drafts: true,
+        drafts: { autosave: { interval: 500 } },
     },
     fields: [
         {

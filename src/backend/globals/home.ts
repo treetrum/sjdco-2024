@@ -13,9 +13,7 @@ export const Home: GlobalConfig = {
         read: loggedInOrPublished,
         update: loggedIn,
     },
-    versions: {
-        drafts: { autosave: { interval: 500 } },
-    },
+    versions: { drafts: true },
     fields: [
         {
             type: 'text',

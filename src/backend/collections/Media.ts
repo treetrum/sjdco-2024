@@ -11,9 +11,7 @@ export const Media: CollectionConfig = {
         delete: loggedIn,
     },
     admin: {},
-    versions: {
-        drafts: { autosave: { interval: 500 } },
-    },
+    versions: { drafts: true },
     hooks: { afterChange: [revalidatePayload] },
     upload: true,
     fields: [],

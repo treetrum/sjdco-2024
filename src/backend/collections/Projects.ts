@@ -17,9 +17,7 @@ export const Projects: CollectionConfig = {
         preview: () => generatePreviewUrl('/'),
     },
     hooks: { afterChange: [revalidatePayload] },
-    versions: {
-        drafts: { autosave: { interval: 500 } },
-    },
+    versions: { drafts: true },
     fields: [
         {
             name: 'title',

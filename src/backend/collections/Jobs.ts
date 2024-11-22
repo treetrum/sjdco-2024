@@ -16,9 +16,7 @@ export const Jobs: CollectionConfig = {
         defaultColumns: ['company', 'createdAt', 'updatedAt'],
         preview: () => generatePreviewUrl('/'),
     },
-    versions: {
-        drafts: { autosave: { interval: 500 } },
-    },
+    versions: { drafts: true },
     hooks: { afterChange: [revalidatePayload] },
     fields: [
         {

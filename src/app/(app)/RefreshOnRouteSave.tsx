@@ -10,14 +10,14 @@ export const RefreshRouteOnSave: React.FC = () => {
 
     const env = z
         .object({
-            NEXT_PUBLIC_PAYLOAD_URL: z.string(),
+            NEXT_PUBLIC_VERCEL_URL: z.string(),
         })
         .parse(process.env);
 
     return (
         <PayloadLivePreview
             refresh={() => router.refresh()}
-            serverURL={env.NEXT_PUBLIC_PAYLOAD_URL}
+            serverURL={env.NEXT_PUBLIC_VERCEL_URL}
         />
     );
 };

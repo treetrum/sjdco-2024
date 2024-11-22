@@ -15,7 +15,7 @@ export const RefreshRouteOnSave: React.FC = () => {
     return (
         <PayloadLivePreview
             refresh={() => router.refresh()}
-            serverURL={env.NEXT_PUBLIC_VERCEL_URL}
+            serverURL={`//${env.NEXT_PUBLIC_VERCEL_URL}`}
         />
     );
 };

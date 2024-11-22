@@ -9,10 +9,8 @@ export const RefreshRouteOnSave: React.FC = () => {
     const router = useRouter();
 
     const env = z
-        .object({
-            NEXT_PUBLIC_VERCEL_URL: z.string(),
-        })
-        .parse(process.env);
+        .object({ NEXT_PUBLIC_VERCEL_URL: z.string() })
+        .parse({ NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL });
 
     return (
         <PayloadLivePreview

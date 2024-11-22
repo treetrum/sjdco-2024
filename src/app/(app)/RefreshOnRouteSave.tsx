@@ -8,10 +8,16 @@ import { z } from 'zod';
 export const RefreshRouteOnSave: React.FC = () => {
     const router = useRouter();
 
+    const env = z
+        .object({
+            NEXT_PUBLIC_PAYLOAD_URL: z.string(),
+        })
+        .parse(process.env);
+
     return (
         <PayloadLivePreview
             refresh={() => router.refresh()}
-            serverURL={z.string().parse(process.env.NEXT_PUBLIC_PAYLOAD_URL)}
+            serverURL={env.NEXT_PUBLIC_PAYLOAD_URL}
         />
     );
 };

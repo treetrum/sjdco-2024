@@ -15,6 +15,14 @@ import { Home } from '@/backend/globals/home';
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
+const env = z
+    .object({
+        BLOB_READ_WRITE_TOKEN: z.string(),
+        DATABASE_URI: z.string(),
+        RESEND_API_KEY: z.string(),
+    })
+    .parse(process.env);
+
 export default buildConfig({
     secret: process.env.PAYLOAD_SECRET || '',
     admin: {
@@ -34,14 +42,14 @@ export default buildConfig({
     plugins: [
         vercelBlobStorage({
             collections: { media: true },
-            token: z.string().parse(process.env.BLOB_READ_WRITE_TOKEN),
+            token: env.BLOB_READ_WRITE_TOKEN,
         }),
     ],
     db: mongooseAdapter({
-        url: z.string().parse(process.env.DATABASE_URI),
+        url: env.DATABASE_URI,
     }),
     email: resendAdapter({
-        apiKey: z.string().parse(process.env.RESEND_API_KEY),
+        apiKey: env.RESEND_API_KEY,
         defaultFromAddress: 'hello@sjd.co',
         defaultFromName: 'SJDco Website',
     }),

@@ -1,5 +1,6 @@
 import { Home, Job as JobType, Project as ProjectType } from '@/types/payload-types';
 import { LexicalRenderer } from '@/utils/lexical/LexicalRenderer';
+import { getDeployedUrl } from '@/utils/lexical/urls';
 import { SocialIcons } from '../../components/SocialIcons';
 import { ThemeController } from '../../components/ThemeController';
 import { Job } from './Job';
@@ -12,10 +13,12 @@ interface Props {
     jobs: JobType[];
 }
 
-export const HomePage = ({ home, projects, jobs }: Props) => {
+export const HomePage = async ({ home, projects, jobs }: Props) => {
+    const url = await getDeployedUrl();
+
     return (
         <div className="container mx-auto flex min-h-screen max-w-screen-xl flex-col items-start gap-12 px-6 py-12 sm:px-16 sm:py-16 lg:flex-row lg:gap-16 lg:py-24">
-            <RefreshRouteOnSave />
+            <RefreshRouteOnSave serverUrl={url} />
             <ThemeController />
             <aside className="top-24 flex w-full flex-col gap-3 lg:sticky lg:max-w-[300px] xl:max-w-[390px]">
                 <h1 className="text-4xl font-bold text-purple sm:text-5xl">{home.title}</h1>

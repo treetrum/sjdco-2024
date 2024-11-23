@@ -11,6 +11,7 @@ import { Media } from '@/backend/collections/Media';
 import { Projects } from '@/backend/collections/Projects';
 import Users from '@/backend/collections/Users';
 import { Home } from '@/backend/globals/home';
+import { getDeployedUrl } from '@/utils/lexical/urls';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -28,9 +29,9 @@ export default buildConfig({
     admin: {
         user: Users.slug,
         livePreview: {
-            url: () => {
-                const protocol = process.env.NODE_ENV === 'production' ? 'https:' : 'http:';
-                return `${protocol}//${process.env.NEXT_PUBLIC_VERCEL_URL}?preview=true`;
+            url: async () => {
+                const url = await getDeployedUrl();
+                return `${url}?preview=true`;
             },
             globals: [Home.slug],
             collections: [Projects.slug, Jobs.slug],

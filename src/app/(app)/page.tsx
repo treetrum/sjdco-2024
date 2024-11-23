@@ -1,15 +1,14 @@
 import config from '@payload-config';
 import { draftMode, headers } from 'next/headers';
 import { getPayload } from 'payload';
+import { getAuth } from '@/utils/auth';
 import { HomePage } from './HomePage';
 
 const shouldFetchDraft = async (searchParams: Promise<{ [key: string]: string | string[] }>) => {
-    const payload = await getPayload({ config });
-    const auth = await payload.auth({ headers: await headers() });
-    const params = await searchParams;
-
     // If there's a user logged in, check if the "?preview" search param is set
+    const auth = await getAuth();
     if (auth.user) {
+        const params = await searchParams;
         return !!params.preview;
     }
 

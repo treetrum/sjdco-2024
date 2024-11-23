@@ -15,5 +15,5 @@ export const getDeployedUrl = async (): Promise<string> => {
 
     const host = isProd ? VERCEL_PROJECT_PRODUCTION_URL : VERCEL_URL;
 
-    return `${protocol}//${host}?preview=true`;
+    return `${protocol}//${host}`;
 };

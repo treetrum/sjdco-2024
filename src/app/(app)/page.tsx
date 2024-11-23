@@ -9,7 +9,9 @@ const shouldFetchDraft = async (searchParams: Promise<{ [key: string]: string | 
     const auth = await getAuth();
     if (auth.user) {
         const params = await searchParams;
-        return !!params.preview;
+        if (!!params.preview) {
+            return true;
+        }
     }
 
     // Otherwise make sure draftMode has been enabled

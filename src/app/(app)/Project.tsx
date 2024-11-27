@@ -25,17 +25,14 @@ export const Project = ({ project }: { project: ProjectType }) => {
         <div className="mt-8 first:mt-0 sm:flex" key={project.title}>
             <div className="mb-4 w-[150px] flex-shrink-0 text-base sm:block md:w-[200px] md:text-lg">
                 <LinkOrSpan>
-                    {project.icon && (
+                    {project.icon && typeof project.icon !== 'string' && (
                         <Image
                             className="rounded-xl shadow"
-                            src={
-                                typeof project.icon == 'string'
-                                    ? project.icon
-                                    : project.icon.url ?? ''
-                            }
+                            src={project.icon.url ?? ''}
                             width={70}
                             height={70}
                             alt=""
+                            priority
                         />
                     )}
                 </LinkOrSpan>

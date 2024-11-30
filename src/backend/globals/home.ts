@@ -16,6 +16,25 @@ export const Home: GlobalConfig = {
     versions: { drafts: true },
     fields: [
         {
+            name: 'features',
+            type: 'group',
+
+            fields: [
+                {
+                    name: 'skills',
+                    type: 'checkbox',
+                },
+                {
+                    name: 'jobs',
+                    type: 'checkbox',
+                },
+                {
+                    name: 'projects',
+                    type: 'checkbox',
+                },
+            ],
+        },
+        {
             type: 'text',
             name: 'title',
         },

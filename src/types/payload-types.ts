@@ -355,6 +355,11 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Home {
   id: string;
+  features?: {
+    skills?: boolean | null;
+    jobs?: boolean | null;
+    projects?: boolean | null;
+  };
   title?: string | null;
   subtitle?: string | null;
   byline?: string | null;
@@ -391,6 +396,13 @@ export interface Home {
  * via the `definition` "home_select".
  */
 export interface HomeSelect<T extends boolean = true> {
+  features?:
+    | T
+    | {
+        skills?: T;
+        jobs?: T;
+        projects?: T;
+      };
   title?: T;
   subtitle?: T;
   byline?: T;

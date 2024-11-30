@@ -33,11 +33,9 @@ export const HomePage = async ({ home, projects, jobs }: Props) => {
                 <div className="prose space-y-5 text-foreground/50">
                     <LexicalRenderer content={home.intro} />
                 </div>
-                {projects.length > 0 && (
+                {home.features?.projects && projects.length > 0 && (
                     <div className="mt-12 lg:mt-20">
-                        <h3 className="text-xl font-bold text-purple sm:text-2xl">
-                            Personal Projects
-                        </h3>
+                        <h3 className="text-xl font-bold text-purple sm:text-2xl">Projects</h3>
                         <div className="mt-4 sm:mt-8">
                             {projects.map((project) => (
                                 <Project key={project.id} project={project} />
@@ -45,11 +43,9 @@ export const HomePage = async ({ home, projects, jobs }: Props) => {
                         </div>
                     </div>
                 )}
-                {jobs.length > 0 && (
+                {home.features?.jobs && jobs.length > 0 && (
                     <div className="mt-12 lg:mt-20">
-                        <h3 className="text-xl font-bold text-purple sm:text-2xl">
-                            Employment History
-                        </h3>
+                        <h3 className="text-xl font-bold text-purple sm:text-2xl">Jobs</h3>
                         <div className="mt-4 sm:mt-8">
                             {jobs.map((job) => (
                                 <Job key={job.id} job={job} />
@@ -57,7 +53,7 @@ export const HomePage = async ({ home, projects, jobs }: Props) => {
                         </div>
                     </div>
                 )}
-                {home.technicalSkills && (
+                {home.features?.skills && home.technicalSkills && (
                     <div className="mt-12 lg:mt-20">
                         <h3 className="text-xl font-bold text-purple sm:text-2xl">
                             Technical skills

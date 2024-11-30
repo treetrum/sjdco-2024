@@ -6,10 +6,10 @@ import { HomePage } from './HomePage';
 
 const shouldFetchDraft = async (searchParams: Promise<{ [key: string]: string | string[] }>) => {
     // If there's a user logged in, check if the "?preview" search param is set
-    const auth = await getAuth();
-    if (auth.user) {
-        const params = await searchParams;
-        if (!!params.preview) {
+    const params = await searchParams;
+    if (!!params.preview) {
+        const auth = await getAuth();
+        if (auth.user) {
             return true;
         }
     }

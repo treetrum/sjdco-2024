@@ -35,7 +35,7 @@
     "dotenv": "^16.4.5",
     "escape-html": "^1.0.3",
     "graphql": "^16.8.2",
-    "next": "15.0.3",
+    "next": "15.0.7",
     "next-themes": "^0.2.1",
     "payload": "3.0.2",
     "react": "19.0.0-rc-65a56d0e-20241020",
